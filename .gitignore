@@ -1,6 +1,6 @@
-# DB config
+# DB Connection
 
-<!-- src/lib/db.config.js -->
+src/lib/db.config.js
 
 # Logs
 

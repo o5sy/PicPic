@@ -1,0 +1,15 @@
+{
+  "name": "Pixabay",
+  "version": "1.0.0",
+  "description": "Pixabay clone",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  }
+}

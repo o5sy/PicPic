@@ -1,0 +1,25 @@
+@font-face {
+  font-family: NanumGothic;
+  src: url(../res/font/NanumGothic/NanumGothic-Regular.eot); // IE 호환성 보기
+  // IE 6 ~ 8
+  src: url(../res/font/NanumGothic/NanumGothic-Regular.eot?#iefix)
+      format("embedded-opentype"),
+    url(../res/font/NanumGothic/NanumGothic-Regular.woff2) format("woff2"),
+    url(../res/font/NanumGothic/NanumGothic-Regular.woff) format("woff"),
+    url(../res/font/NanumGothic/NanumGothic-Regular.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: NanumGothic;
+  src: url(../res/font/NanumGothic/NanumGothic-Bold.eot); // IE 호환성 보기
+  // IE 6 ~ 8
+  src: url(../res/font/NanumGothic/NanumGothic-Bold.eot?#iefix)
+      format("embedded-opentype"),
+    url(../res/font/NanumGothic/NanumGothic-Bold.woff2) format("woff2"),
+    url(../res/font/NanumGothic/NanumGothic-Bold.woff) format("woff"),
+    url(../res/font/NanumGothic/NanumGothic-Bold.ttf) format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}

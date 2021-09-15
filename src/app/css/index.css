@@ -1,0 +1,250 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+html {
+  font-family: NanumGothic;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+}
+
+.wrap {
+  width: 1830px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: #fff;
+}
+
+.header__logo {
+  cursor: pointer;
+}
+
+.header__search {
+  width: 405px;
+  height: 35px;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border: 1px solid #f6f5fa;
+  border-radius: 4px;
+  margin-left: 40px;
+}
+
+.header__search .query-input {
+  width: 100%;
+  margin-left: 15px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: #191b26;
+}
+
+.header__search .query-input:focus {
+  outline: none;
+}
+
+.header__nav {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header__action-buttons .separator {
+  width: 0;
+  border-left: 1px solid #eee;
+  height: 2em;
+}
+
+.header__button--login, .header__button--join {
+  height: 100%;
+  font-size: 14px;
+  color: #191b26;
+  padding: 0 20px;
+}
+
+.header__button--login:hover, .header__button--join:hover {
+  background-color: #f3f3f3;
+  text-decoration: underline;
+}
+
+.header__button--profile img {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f5fa;
+}
+
+.main .photos-container {
+  padding: 10px 20px;
+}

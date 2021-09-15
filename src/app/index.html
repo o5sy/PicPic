@@ -5,11 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixabay</title>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <header class="header"></header>
-    <main></main>
-    <div></div>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="wrap">
+        <div class="header__logo">pixabay</div>
+        <div class="header__search">
+          <img src="/res/img/icon/search.png" alt="검색 아이콘" />
+          <input
+            class="query-input"
+            type="text"
+            placeholder="이미지를 검색하세요."
+          />
+        </div>
+        <nav class="header__nav">
+          <div class="header__action-buttons">
+            <!-- 비로그인 시 -->
+            <!-- <button class="heaer__button--login">Log in</button>
+            <span class="separator"></span>
+            <button class="heaer__button--join">Join</button> -->
+
+            <!-- 로그인 시 -->
+            <button class="header__button--profile">
+              <img src="/res/img/icon/profile-image.svg" alt="프로필 아이콘" />
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 이미지 목록 -->
+    <main class="main">
+      <div class="photos-container wrap" id="photoList">목록들</div>
+    </main>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination-"></div>
 
     <script type="module" src="./js/app.js"></script>
   </body>

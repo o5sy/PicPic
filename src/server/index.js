@@ -16,14 +16,13 @@ app.use("/api", api);
 // 웹 루트 경로 지정
 rootPath = path.join(__dirname, "../", "../");
 webRootPath = path.join(rootPath, "/src/app");
-console.log(rootPath, webRootPath);
-
-// 리소스 경로 지정
 app.use("/js", Express.static(webRootPath + "/js"));
+app.use("/css", Express.static(webRootPath + "/css"));
+app.use("/res", Express.static(rootPath + "/res"));
 
 // url에 해당하는 html 파일 응답
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../app/index.html")); // C:\Users\ayul5\workspace\Study\Pixabay\src\app\index.html
+  res.sendFile(path.join(webRootPath, "/index.html")); // C:\Users\ayul5\workspace\Study\Pixabay\src\app\index.html
 });
 
 app.listen(PORT, () => {

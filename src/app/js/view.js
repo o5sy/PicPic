@@ -7,12 +7,12 @@ export default function View() {
 View.prototype.bind = function (event, handler) {
   switch (event) {
     case "addCount":
-      this.$addButton.addEventListener("click", () => {
+      this.$addButton?.addEventListener("click", () => {
         handler();
       });
       break;
     case "minusCount":
-      this.$minusButton.addEventListener("click", () => {
+      this.$minusButton?.addEventListener("click", () => {
         handler();
       });
       break;

@@ -19,6 +19,7 @@ webRootPath = path.join(rootPath, "/src/app");
 app.use("/js", Express.static(webRootPath + "/js"));
 app.use("/css", Express.static(webRootPath + "/css"));
 app.use("/res", Express.static(rootPath + "/res"));
+app.use("/dist", Express.static(rootPath + "/dist"));
 
 // url에 해당하는 html 파일 응답
 app.get("/", (req, res) => {

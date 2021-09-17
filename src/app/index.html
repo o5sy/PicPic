@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixabay</title>
     <link rel="stylesheet" href="./css/index.css" />
+
+    <!-- masonry 레이아웃 라이브러리 -->
+    <!-- <script src="./js/lib/masonry.pkgd.min.js"></script> -->
   </head>
   <body>
     <!-- 헤더 -->
     <header class="header">
       <div class="wrap">
-        <div class="header__logo">pixabay</div>
+        <div class="header__logo">
+          <a href="/">pixabay</a>
+        </div>
         <div class="header__search">
           <img src="/res/img/icon/search.png" alt="검색 아이콘" />
           <input
@@ -23,14 +28,14 @@
         <nav class="header__nav">
           <div class="header__action-buttons">
             <!-- 비로그인 시 -->
-            <!-- <button class="heaer__button--login">Log in</button>
+            <button class="header__button--login">Log in</button>
             <span class="separator"></span>
-            <button class="heaer__button--join">Join</button> -->
+            <button class="header__button--join">Join</button>
 
             <!-- 로그인 시 -->
-            <button class="header__button--profile">
+            <!-- <button class="header__button--profile">
               <img src="/res/img/icon/profile-image.svg" alt="프로필 아이콘" />
-            </button>
+            </button> -->
           </div>
         </nav>
       </div>
@@ -38,11 +43,47 @@
 
     <!-- 이미지 목록 -->
     <main class="main">
-      <div class="photos-container wrap" id="photoList">목록들</div>
+      <ul class="photos-container wrap" id="photoList">
+        <li class="item" style="width: 90px">
+          <a class="item__photo-link" href="/">
+            <img src="/res/img/icon/profile-image.svg" />
+          </a>
+          <div class="info-container">
+            <ul class="info-container__tags-container">
+              <li class="tag"><a href="">1d</a></li>
+              <li class="tag"><a href="">1d</a></li>
+              <li class="tag"><a href="">1d</a></li>
+              <li class="tag"><a href="">1d</a></li>
+            </ul>
+            <input
+              class="info-container__button--add-collection"
+              type="checkbox"
+            />
+          </div>
+        </li>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item" style="width: 190px">4</div>
+        <div class="item">5</div>
+        <div class="item" style="width: 50px">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item" style="width: 30px">9</div>
+        <div class="item">10</div>
+      </ul>
     </main>
 
     <!-- 페이지네이션 -->
-    <div class="pagination-"></div>
+    <div class="pagination wrap">
+      <button class="pagination__button--next-page">다음 페이지 ＞</button>
+      <div class="pagination__separator"></div>
+      <div class="pagination__navigator">
+        <input class="pagination__input-page" type="number" value="1" />
+        <span class="pagination__last-page">200</span>
+        <button class="pagination__button--prev">＜</button>
+        <button class="pagination__button--next">＞</button>
+      </div>
+    </div>
 
     <script type="module" src="./js/app.js"></script>
   </body>

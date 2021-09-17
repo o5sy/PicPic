@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -157,16 +158,22 @@ button {
   margin: 0;
 }
 
+a {
+  cursor: pointer;
+}
+
 body {
   width: 100vw;
 }
 
 .wrap {
-  width: 1830px;
+  min-width: 100%;
+  max-width: 1830px;
   height: 100%;
   display: flex;
   align-items: center;
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .header {
@@ -214,9 +221,13 @@ body {
   align-items: center;
 }
 
+.header__action-buttons {
+  height: 100%;
+}
+
 .header__action-buttons .separator {
   width: 0;
-  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
   height: 2em;
 }
 
@@ -246,5 +257,143 @@ body {
 }
 
 .main .photos-container {
+  margin: 20px 0;
   padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.main .item {
+  position: relative;
+  flex: auto;
+  width: 200px;
+  height: 100px;
+  background-color: bisque;
+}
+
+.main .item__photo-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.main .item__photo-link > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main .item .info-container {
+  width: 100%;
+  padding: 0 8px 6px;
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0, transparent);
+  opacity: 1;
+  bottom: 0;
+}
+
+.main .item .info-container__tags-container {
+  max-height: 50%;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex: 1;
+}
+
+.main .item .info-container__tags-container .tag:hover {
+  background-color: #f7f7f7;
+}
+
+.main .item .info-container__button--add-collection {
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.main .grid-item {
+  width: 200px;
+}
+
+.main .grid-item--width2 {
+  width: 400px;
+}
+
+.pagination {
+  flex-direction: column;
+}
+
+.pagination__button--next-page {
+  width: 240px;
+  height: 42px;
+  padding: 10px 22px;
+  background-color: #e6e6e6;
+  font-size: 16px;
+  border-radius: 50px;
+  margin: 50px 0;
+}
+
+.pagination__button--next-page:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+.pagination__button--prev, .pagination__button--next {
+  width: 36px;
+  height: 24px;
+  margin: 5px 3px;
+  border-radius: 50px;
+  color: #777;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0 0 2px #cecece inset;
+  border: 1px solid #cecece;
+}
+
+.pagination__button--prev:hover, .pagination__button--next:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.2));
+}
+
+.pagination__separator {
+  width: 100%;
+  border-bottom: 1px solid #f0f1f4;
+}
+
+.pagination__navigator {
+  margin-top: 11px;
+  align-self: flex-end;
+}
+
+.pagination__input-page {
+  width: 28px;
+  height: 26px;
+  font-size: 13px;
+  box-shadow: inset 0 1px 3px #ddd;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 2px;
+  /* 화살표 제거 */
+  /* Firefox */
+  -moz-appearance: textfield;
+  /* Chrome, Safari, Edge, Opera */
+}
+
+.pagination__input-page::-webkit-inner-spin-button, .pagination__input-page::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pagination__input-page:focus {
+  outline: #129fea solid 1px;
+}
+
+.pagination__last-page {
+  font-size: 13px;
+}
+
+.pagination__last-page::before {
+  content: "/";
+  padding-right: 2px;
+  font-size: 13px;
 }

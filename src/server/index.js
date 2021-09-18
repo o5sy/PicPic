@@ -22,7 +22,7 @@ app.use("/res", Express.static(rootPath + "/res"));
 app.use("/dist", Express.static(rootPath + "/dist"));
 
 // url에 해당하는 html 파일 응답
-// 홈
+// 메인 페이지
 app.get("/", (req, res) => {
   res.sendFile(path.join(webRootPath, "/index.html")); // C:\Users\ayul5\workspace\Study\Pixabay\src\app\index.html
 });
@@ -30,6 +30,15 @@ app.get("/", (req, res) => {
 // 검색 결과 페이지
 app.get("/search/:query", (req, res) => {
   res.sendFile(path.join(webRootPath, "/search.html"));
+});
+
+// 사진 상세보기 페이지
+app.get("/photo/:id", (req, res) => {
+  res.sendFile(path.join(webRootPath, "/detail.html"));
+});
+// id 값 없을 경우 메인 페이지로 이동
+app.get("/photo", (req, res) => {
+  res.sendFile(path.join(webRootPath, "/index.html"));
 });
 
 app.listen(PORT, () => {

@@ -22,8 +22,14 @@ app.use("/res", Express.static(rootPath + "/res"));
 app.use("/dist", Express.static(rootPath + "/dist"));
 
 // url에 해당하는 html 파일 응답
+// 홈
 app.get("/", (req, res) => {
   res.sendFile(path.join(webRootPath, "/index.html")); // C:\Users\ayul5\workspace\Study\Pixabay\src\app\index.html
+});
+
+// 검색 결과 페이지
+app.get("/search/:query", (req, res) => {
+  res.sendFile(path.join(webRootPath, "/search.html"));
 });
 
 app.listen(PORT, () => {

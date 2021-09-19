@@ -1,0 +1,114 @@
+@import "./common/base";
+
+body {
+  width: 100%;
+}
+
+.wrap {
+  width: 1310px;
+}
+
+.content-container {
+  @include flexCenter;
+
+  .content {
+    display: flex;
+  }
+}
+
+.photo-container {
+  flex: 1;
+
+  .photo {
+    @include flexCenter;
+
+    > img {
+      box-shadow: rgba(0, 0, 30, 0.3) 0px 1px 3px 0px;
+      width: 480px;
+      height: 500px;
+    }
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 12px;
+
+  .tag {
+    @include flexCenter;
+
+    height: 28px;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-radius: 20px;
+    border: 1px solid #cecece;
+    color: $gray-button;
+    box-sizing: border-box;
+  }
+}
+
+.info-container {
+  width: 300px;
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  > hr {
+    width: 100%;
+    border: unset; // 입체감 없애기
+    border-top: 1px solid #eeeff2;
+  }
+  .user-info {
+    display: flex;
+
+    > img {
+      width: 48px;
+      height: 48px;
+      border-radius: 100%;
+      margin-right: 12px;
+    }
+    &__name {
+      font-size: 15px;
+      color: #555;
+    }
+  }
+  .button--download {
+    height: 42px;
+    font-size: 16px;
+    color: $white;
+    background-color: $green;
+    border-radius: 50px;
+
+    > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+    &:hover {
+      background-image: $button-gradient;
+    }
+  }
+  .outer {
+    padding: 15px 20px;
+    background-color: $gray-border;
+  }
+  .license-info {
+    > .title {
+      color: #636363;
+      font-size: 16px;
+      margin-bottom: 5px;
+
+      > a {
+        text-decoration: underline;
+      }
+    }
+    > .description {
+      font-size: 14px;
+      line-height: 21px;
+      color: $font-color;
+    }
+  }
+}

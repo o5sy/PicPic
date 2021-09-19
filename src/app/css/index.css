@@ -162,8 +162,12 @@ a {
   cursor: pointer;
 }
 
+a:visited {
+  color: unset;
+}
+
 body {
-  width: 100vw;
+  width: 100%;
 }
 
 .wrap {

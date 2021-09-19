@@ -1,1 +1,289 @@
-/* No CSS */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+html {
+  font-family: NanumGothic;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:visited {
+  color: unset;
+}
+
+body {
+  width: 100%;
+}
+
+.wrap {
+  width: 1310px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container .content {
+  display: flex;
+}
+
+.photo-container {
+  flex: 1;
+}
+
+.photo-container .photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-container .photo > img {
+  box-shadow: rgba(0, 0, 30, 0.3) 0px 1px 3px 0px;
+  width: 480px;
+  height: 500px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 12px;
+}
+
+.tag-list .tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  padding: 2px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #cecece;
+  color: #777;
+  box-sizing: border-box;
+}
+
+.info-container {
+  width: 300px;
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-container > hr {
+  width: 100%;
+  border: unset;
+  border-top: 1px solid #eeeff2;
+}
+
+.info-container .user-info {
+  display: flex;
+}
+
+.info-container .user-info > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  margin-right: 12px;
+}
+
+.info-container .user-info__name {
+  font-size: 15px;
+  color: #555;
+}
+
+.info-container .button--download {
+  height: 42px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #02be6e;
+  border-radius: 50px;
+}
+
+.info-container .button--download > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.info-container .button--download:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+.info-container .outer {
+  padding: 15px 20px;
+  background-color: #f6f5fa;
+}
+
+.info-container .license-info > .title {
+  color: #636363;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.info-container .license-info > .title > a {
+  text-decoration: underline;
+}
+
+.info-container .license-info > .description {
+  font-size: 14px;
+  line-height: 21px;
+  color: #191b26;
+}

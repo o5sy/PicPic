@@ -1,7 +1,7 @@
 @import "./common/base";
 
 body {
-  width: 100vw;
+  width: 100%;
 }
 
 .wrap {
@@ -174,11 +174,7 @@ body {
       margin: 50px 0;
 
       &:hover {
-        background-image: linear-gradient(
-          transparent,
-          rgba(0, 0, 0, 0.05) 40%,
-          rgba(0, 0, 0, 0.1)
-        );
+        background-image: $button-gradient;
       }
     }
     &--prev,
@@ -187,7 +183,7 @@ body {
 
       width: 36px;
       border-radius: 50px;
-      color: #777;
+      color: $gray-button;
       font-weight: bold;
       display: inline-flex;
       justify-content: center;

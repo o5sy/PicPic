@@ -19,4 +19,8 @@ button {
 
 a {
   cursor: pointer;
+
+  &:visited {
+    color: unset;
+  }
 }

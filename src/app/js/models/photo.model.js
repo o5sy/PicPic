@@ -1,4 +1,5 @@
 import { createApi } from "unsplash-js";
+import { isEmpty } from "../util/util.page";
 
 export default class PhotoModel {
   #unsplashApi;
@@ -11,20 +12,33 @@ export default class PhotoModel {
     });
   }
 
-  async getPhotoList(page = 1, perPage = 30) {
-    const res = await this.#unsplashApi.photos.list({
-      page: page,
-      perPage: perPage,
-    });
+  async getPhotoList(query, page = 1, perPage = 30) {
+    let res;
+    if (isEmpty(query)) {
+      // 전체 목록 조회
+      res = await this.#unsplashApi.photos.list({
+        page: page,
+        perPage: perPage,
+      });
+    } else {
+      // 검색어로 목록 조회
+      res = await this.#unsplashApi.search.getPhotos({
+        query: query,
+        page: page,
+        perPage: perPage,
+      });
+    }
+
     if (res.errors) {
       console.log("error occurred: ", res.errors[0]);
     } else {
       console.log(res);
-      console.log(res.response);
-      // TODO 여기서 잘못된 데이터 없는지 체크 필요할 듯
       // 전체 페이지 수 프로퍼티 추가
-      res.response.totalPage = Math.ceil(res.response.total / perPage);
-      console.log(res.response.total, perPage, res.response.totalPage);
+      res.response.total_pages = res.response.total_pages
+        ? res.response.total_pages
+        : Math.max(1, Math.ceil(res.response.total / perPage));
+      // console.log(res.response);
+      // console.log(res.response.total, perPage, res.response.totalPage);
       return res.response;
     }
   }

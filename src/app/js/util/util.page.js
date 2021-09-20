@@ -9,7 +9,7 @@ export const getParam = (param, initValue, url = null) => {
   return urlParams.get(param) ? urlParams.get(param) : initValue;
 };
 
-function isEmpty(str) {
+export function isEmpty(str) {
   if (typeof str == "undefined" || str == null || str == "") return true;
   else return false;
 }

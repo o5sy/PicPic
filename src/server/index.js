@@ -24,6 +24,7 @@ app.use("/dist", Express.static(rootPath + "/dist"));
 
 // url에 해당하는 html 파일 응답
 // 메인 페이지
+// TODO index.html을 검색 목록 페이지로 쓰고 메인 페이지 추가할 예정
 app.get("/", (req, res) => {
   const result = getImportHeader("index.html");
   res.send(result);
@@ -31,7 +32,11 @@ app.get("/", (req, res) => {
 
 // 검색 결과 페이지
 app.get("/search/:query", (req, res) => {
-  const result = getImportHeader("search.html");
+  const result = getImportHeader("index.html");
+  res.send(result);
+});
+app.get("/search", (req, res) => {
+  const result = getImportHeader("index.html");
   res.send(result);
 });
 

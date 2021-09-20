@@ -266,9 +266,24 @@ body {
   background-color: #f6f5fa;
 }
 
+.main .result {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.main .total-label {
+  display: flex;
+  align-items: center;
+  color: #bbb;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.main .total-label > span {
+  margin-left: 4px;
+}
+
 .main .photos-container {
-  margin: 20px 0;
-  padding: 10px 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -325,12 +340,30 @@ body {
   align-self: flex-end;
 }
 
-.main .grid-item {
-  width: 200px;
+.main .empty-guide {
+  display: none;
+  margin: 240px 0 240px 20px;
 }
 
-.main .grid-item--width2 {
-  width: 400px;
+.main .empty-guide__title {
+  font-weight: bold;
+  font-size: 15px;
+  color: #191b26;
+  margin-bottom: 30px;
+}
+
+.main .empty-guide__check-list {
+  font-size: 15px;
+  color: #191b26;
+}
+
+.main .empty-guide__check-list > li {
+  list-style: inside;
+  line-height: 28px;
+}
+
+.main .empty-guide__check-list .space {
+  margin-bottom: 15px;
 }
 
 .pagination {
@@ -394,13 +427,30 @@ body {
   border-bottom: 1px solid #f0f1f4;
 }
 
+.pagination__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 11px;
+  width: 100%;
+}
+
+.pagination__bottom .total-label {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.pagination__bottom .total-label > span {
+  margin-left: 4px;
+}
+
 .pagination__navigator {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 23px;
-  padding-top: 11px;
-  align-self: flex-end;
   align-items: stretch;
 }
 

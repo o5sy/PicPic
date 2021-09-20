@@ -11,6 +11,7 @@ body {
 
 .content-container {
   @include flexCenter;
+  margin: 32px 0;
 
   .content {
     display: flex;
@@ -102,12 +103,12 @@ body {
   }
   .license-info {
     > .title {
-      color: #636363;
       font-size: 16px;
       margin-bottom: 5px;
 
       > a {
         text-decoration: underline;
+        color: #636363;
       }
     }
     > .description {

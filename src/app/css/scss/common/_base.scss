@@ -19,8 +19,86 @@ button {
 
 a {
   cursor: pointer;
+}
 
-  &:visited {
-    color: unset;
+.header {
+  @include flexCenter;
+  height: 60px;
+  background-color: $white;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.12);
+
+  &-wrap {
+    @include flexCenter;
+    width: 1830px;
+    padding: 0 20px;
+  }
+  &__logo {
+    cursor: pointer;
+
+    > a {
+      color: $font-color;
+      font-weight: bold;
+    }
+  }
+  &__search {
+    width: 405px;
+    height: 35px;
+    background-color: $gray;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    border: 1px solid $gray-border;
+    border-radius: 4px;
+    margin-left: 40px;
+
+    .query-input {
+      width: 100%;
+      margin-left: 15px;
+      border: none;
+      background: none;
+      font-size: $s-14;
+      color: $font-color;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &__nav {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &__action-buttons {
+    height: 100%;
+
+    .separator {
+      width: 0;
+      border-right: 1px solid #eee;
+      height: 2em;
+    }
+  }
+  &__button {
+    &--login,
+    &--join {
+      height: 100%;
+      font-size: $s-14;
+      color: $font-color;
+      padding: 0 20px;
+
+      &:hover {
+        background-color: $gray-hover;
+        text-decoration: underline;
+      }
+    }
+    &--profile {
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+      }
+    }
   }
 }

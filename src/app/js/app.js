@@ -44,7 +44,7 @@ photoModel.getPhotoList(currentPage).then((res) => {
 
   // 사진 목록 추가
   res.results.map((info) => {
-    const { id, urls, created_at, updated_at } = info;
+    const { id, urls } = info;
 
     // 엘리먼트 생성
     const li = document.createElement("li"),

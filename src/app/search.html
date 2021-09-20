@@ -4,10 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>검색 결과</title>
-    <link rel="stylesheet" href="/css/index.css" />
+    <title>Pixabay</title>
+    <link rel="stylesheet" href="/css/search.css" />
+
+    <!-- masonry 레이아웃 라이브러리 -->
+    <!-- <script src="./js/lib/masonry.pkgd.min.js"></script> -->
   </head>
   <body>
     __HEADER__
+
+    <!-- 이미지 목록 -->
+    <main class="main">
+      <div class="result wrap" id="resultView">
+        <div class="total-label">
+          총 <span id="totalCount"></span>개의 무료 이미지
+        </div>
+        <ul class="photos-container" id="photoList">
+          <!-- <li class="item" style="width: 90px">
+          <a class="item__photo-link" href="/">
+            <img src="/res/img/icon/profile-image.svg" />
+          </a>
+          <div class="info-container">
+            <ul class="info-container__tags-container">
+              <li class="tag"><a href="">1d</a></li>
+              <li class="tag"><a href="">1d</a></li>
+              <li class="tag"><a href="">1d</a></li>
+              <li class="tag"><a href="">1d</a></li>
+            </ul>
+            <input
+              class="info-container__button--add-collection"
+              type="checkbox"
+            />
+          </div>
+        </li> -->
+        </ul>
+      </div>
+      <!-- 조회된 이미지 없을 경우 표시할 가이드 -->
+      <div class="empty-guide wrap" id="emptyGuide">
+        <div class="empty-guide__title">
+          죄송합니다. 검색된 결과가 없습니다.
+        </div>
+        <ul class="empty-guide__check-list">
+          <div class="space">시도할 수 있는 것</div>
+          <li>맞춤법이 올바른지 검사해 주세요.</li>
+          <li>동의어 또는 일반적인 용어를 사용해 보세요.</li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination" id="paginationContainer">
+      <div class="wrap">
+        <a class="pagination__button--next-page" id="nextPageButton">
+          다음 페이지 ＞
+        </a>
+        <div class="pagination__separator"></div>
+        <div class="pagination__bottom">
+          <div class="total-label">
+            총 <span id="totalCount"></span>개의 무료 이미지
+          </div>
+          <div class="pagination__navigator">
+            <input
+              class="pagination__input-page"
+              id="currentPageLabel"
+              type="number"
+              value="1"
+            />
+            <span class="pagination__last-page" id="lastPageLabel">1000</span>
+            <a class="pagination__button--prev" id="prevArrowButton">＜</a>
+            <a class="pagination__button--next" id="nextArrowButton">＞</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/dist/search_bundle.js"></script>
   </body>
 </html>

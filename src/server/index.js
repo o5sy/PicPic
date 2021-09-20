@@ -32,11 +32,11 @@ app.get("/", (req, res) => {
 
 // 검색 결과 페이지
 app.get("/search/:query", (req, res) => {
-  const result = getImportHeader("index.html");
+  const result = getImportHeader("search.html");
   res.send(result);
 });
 app.get("/search", (req, res) => {
-  const result = getImportHeader("index.html");
+  const result = getImportHeader("search.html");
   res.send(result);
 });
 
@@ -46,8 +46,8 @@ app.get("/photo/:id", (req, res) => {
   res.send(result);
 });
 app.get("/photo", (req, res) => {
-  // id 값 없을 경우 메인 페이지로 이동
-  const result = getImportHeader("index.html");
+  // id 값 없을 경우 사진 목록 페이지로 이동
+  const result = getImportHeader("search.html");
   res.send(result);
 });
 

@@ -5,7 +5,8 @@ var path = require("path");
 module.exports = {
   mode: "none",
   entry: {
-    index: "./src/app/js/app.js",
+    index: "./src/app/js/index.js",
+    search: "./src/app/js/search.js",
     detail: "./src/app/js/detail.js",
   },
   output: {

@@ -6,6 +6,7 @@ body {
 
 .wrap {
   width: 1310px;
+  padding: 0 20px;
 }
 
 .content-container {
@@ -18,14 +19,16 @@ body {
 
 .photo-container {
   flex: 1;
+  margin-right: 50px;
 
   .photo {
     @include flexCenter;
 
     > img {
+      object-fit: contain;
       box-shadow: rgba(0, 0, 30, 0.3) 0px 1px 3px 0px;
-      width: 480px;
-      height: 500px;
+      max-width: 100%;
+      max-height: 500px;
     }
   }
 }
@@ -44,14 +47,16 @@ body {
     font-size: 12px;
     border-radius: 20px;
     border: 1px solid #cecece;
-    color: $gray-button;
     box-sizing: border-box;
+
+    > a {
+      color: $gray-button;
+    }
   }
 }
 
 .info-container {
   width: 300px;
-  height: 100vw;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -79,7 +84,7 @@ body {
     height: 42px;
     font-size: 16px;
     color: $white;
-    background-color: $green;
+    background-color: $green-button;
     border-radius: 50px;
 
     > img {

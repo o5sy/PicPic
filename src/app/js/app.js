@@ -10,37 +10,8 @@
 // new App();
 
 // 이미지 불러오기 테스트
-import { createApi } from "unsplash-js";
-
-class PhotoModel {
-  #unsplashApi;
-
-  constructor() {
-    // api 설정
-    // demo 버전은 시간당 최대 50회까지 요청 가능
-    this.#unsplashApi = createApi({
-      accessKey: "JHLSSHZ9m54JJ3dEqddNnHPsUSUZpHN-zNze4LNb6iY",
-    });
-  }
-
-  async getData(page = 1, perPage = 30) {
-    const res = await this.#unsplashApi.photos.list({
-      page: page,
-      perPage: perPage,
-    });
-    if (res.errors) {
-      console.log("error occurred: ", res.errors[0]);
-    } else {
-      console.log(res);
-      console.log(res.response);
-      // TODO 여기서 잘못된 데이터 없는지 체크 필요할 듯
-      // 전체 페이지 수 프로퍼티 추가
-      res.response.totalPage = Math.ceil(res.response.total / perPage);
-      console.log(res.response.total, perPage, res.response.totalPage);
-      return res.response;
-    }
-  }
-}
+import PhotoModel from "./models/photo.model";
+import { getParam } from "./util/util.page";
 
 // 페이지 이동 버튼 별로 링크 넣어주기
 // 1페이지 이미지 목록 가져오기
@@ -55,10 +26,8 @@ const prevArrowButton = document.getElementById("prevArrowButton");
 const nextArrowButton = document.getElementById("nextArrowButton");
 
 // 현재 페이지 설정
-const queryString = window.location.search; // ex) ?product=shirt
-const urlParams = new URLSearchParams(queryString);
 let totalPage;
-let currentPage = urlParams.get("page") ? parseInt(urlParams.get("page")) : 1;
+let currentPage = getParam("page", 1);
 currentPageLabel.value = currentPage;
 
 // 페이지 이동 버튼 url 설정
@@ -70,7 +39,7 @@ nextPageButton.href = `/?page=${nextPage}`;
 
 // 사진 목록
 const photoModel = new PhotoModel();
-photoModel.getData(currentPage).then((res) => {
+photoModel.getPhotoList(currentPage).then((res) => {
   if (!res) return;
 
   // 사진 목록 추가

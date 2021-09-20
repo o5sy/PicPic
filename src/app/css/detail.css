@@ -171,6 +171,7 @@ body {
 
 .wrap {
   width: 1310px;
+  padding: 0 20px;
 }
 
 .content-container {
@@ -185,6 +186,7 @@ body {
 
 .photo-container {
   flex: 1;
+  margin-right: 50px;
 }
 
 .photo-container .photo {
@@ -194,9 +196,10 @@ body {
 }
 
 .photo-container .photo > img {
+  object-fit: contain;
   box-shadow: rgba(0, 0, 30, 0.3) 0px 1px 3px 0px;
-  width: 480px;
-  height: 500px;
+  max-width: 100%;
+  max-height: 500px;
 }
 
 .tag-list {
@@ -215,13 +218,15 @@ body {
   font-size: 12px;
   border-radius: 20px;
   border: 1px solid #cecece;
-  color: #777;
   box-sizing: border-box;
+}
+
+.tag-list .tag > a {
+  color: #777;
 }
 
 .info-container {
   width: 300px;
-  height: 100vw;
   display: flex;
   flex-direction: column;
   gap: 20px;

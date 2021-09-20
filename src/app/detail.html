@@ -11,22 +11,16 @@
     <div class="content-container">
       <div class="content wrap">
         <div class="photo-container">
-          <main class="photo"><img src="" alt="" /></main>
-          <ul class="tag-list">
-            <li class="tag"><a>태그</a></li>
-            <li class="tag"><a>태그</a></li>
-            <li class="tag"><a>태그</a></li>
-            <li class="tag"><a>태그</a></li>
-            <li class="tag"><a>태그</a></li>
-          </ul>
+          <main class="photo"><img id="photoView" /></main>
+          <ul class="tag-list" id="tagList"></ul>
         </div>
         <aside class="info-container">
           <div class="user-info">
-            <img src="/res/img/icon/profile-image.svg" alt="" />
-            <h3 class="user-info__name">유저네임</h3>
+            <img id="userProfileImg" src="/res/img/icon/profile-image.svg" />
+            <h3 class="user-info__name" id="userNameLabel">유저네임</h3>
           </div>
           <hr />
-          <button class="button--download">
+          <button class="button--download" id="downloadButton">
             <img src="/res/img/icon/download-icon.png" />무료 다운로드
           </button>
           <div class="license-info outer">
@@ -42,5 +36,7 @@
         </aside>
       </div>
     </div>
+
+    <script type="module" src="/dist/detail_bundle.js"></script>
   </body>
 </html>

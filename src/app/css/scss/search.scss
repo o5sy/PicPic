@@ -14,7 +14,7 @@ body {
   @include flexCenter;
   background-color: #f6f5fa;
 
-  .result {
+  .photo-container {
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -30,7 +30,7 @@ body {
       margin-left: 4px;
     }
   }
-  .photos-container {
+  .photo-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -38,9 +38,9 @@ body {
   .item {
     position: relative;
     flex: auto;
-    width: 200px;
+    min-width: 200px;
     height: 250px;
-    background-color: bisque;
+    background-color: $gray;
 
     &__photo-link {
       position: absolute;

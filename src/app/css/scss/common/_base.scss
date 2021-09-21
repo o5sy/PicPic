@@ -102,3 +102,16 @@ a {
     }
   }
 }
+
+.button--green {
+  display: inline-block;
+  font-size: $s-16;
+  color: $white;
+  background-color: $green-button;
+  padding: 12px 60px;
+  border-radius: 50px;
+
+  &:hover {
+    background-image: $button-gradient;
+  }
+}

@@ -24,9 +24,8 @@ app.use("/dist", Express.static(rootPath + "/dist"));
 
 // url에 해당하는 html 파일 응답
 // 메인 페이지
-// TODO index.html을 검색 목록 페이지로 쓰고 메인 페이지 추가할 예정
 app.get("/", (req, res) => {
-  const result = getImportHeader("index.html");
+  const result = getImportHeader("index.html", true);
   res.send(result);
 });
 
@@ -55,7 +54,7 @@ app.listen(PORT, () => {
   console.log(`${PORT}번 port에 http server를 띄웠습니다.`);
 });
 
-function getImportHeader(htmlFileName) {
+function getImportHeader(htmlFileName, isMainPage = false) {
   if (
     (htmlFileName !== "string" && htmlFileName === "") ||
     htmlFileName === null
@@ -72,8 +71,9 @@ function getImportHeader(htmlFileName) {
     .toString();
 
   // 헤더 파일
+  const headerName = isMainPage ? "header-non-search.html" : "header.html";
   const headerFile = fs
-    .readFileSync(path.join(rootPath, "/src/server/static/header.html"))
+    .readFileSync(path.join(rootPath, `/src/server/static/${headerName}`))
     .toString();
 
   // '__HEADER__' 문자열을 header.html 파일로 교체

@@ -1,1 +1,175 @@
 @import "./common/base";
+
+body {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.wrap {
+  @include flexCenter;
+  flex-direction: column;
+  max-width: 1830px;
+  padding: 0 40px;
+}
+
+.introduction {
+  position: relative;
+  width: 100%;
+  height: 530px;
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 160px 40px 15px;
+    box-sizing: border-box;
+
+    .title {
+      font-size: $s-32;
+      font-weight: bold;
+      color: $white;
+      margin-bottom: 30px;
+    }
+    .description {
+      font-size: $s-16;
+      color: $white;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .search-form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+      height: 60px;
+      background-color: $white;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 0 15px;
+      box-sizing: border-box;
+
+      > img {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+      }
+      .query-input {
+        flex: 1;
+        font-size: $s-16;
+        color: $font-color;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .user-name {
+      position: absolute;
+      bottom: 15px;
+      font-size: $s-14;
+      color: $white;
+    }
+  }
+}
+
+.photo-container {
+  @include flexCenter;
+  margin: 20px 0 10px;
+
+  .photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 45px;
+  }
+  .item {
+    position: relative;
+    flex: auto;
+    min-width: 200px;
+    height: 250px;
+    background-color: $gray;
+
+    &__photo-link {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    // TODO 호버 시 애니메이션 추가
+    .info-container {
+      width: 100%;
+      padding: 0 8px 6px;
+      box-sizing: border-box;
+      position: absolute;
+      display: flex;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0, transparent);
+      opacity: 1;
+      bottom: 0;
+
+      &__tags-container {
+        max-height: 50%;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        flex: 1;
+
+        .tag {
+          > a {
+            color: $white;
+          }
+          &:hover {
+            background-color: $gray;
+          }
+        }
+      }
+      &__button--add-collection {
+        justify-self: flex-end;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+.additional-description {
+  @include flexCenter;
+  margin: 100px 0;
+
+  > .wrap {
+    width: 1024px;
+  }
+  .title {
+    color: $font-color-main;
+    font-size: $s-30;
+    margin-bottom: 20px;
+  }
+  .description {
+    color: $font-color;
+    font-size: $s-16;
+    line-height: 26px;
+    text-align: center;
+
+    > a {
+      color: $link-color;
+    }
+  }
+}

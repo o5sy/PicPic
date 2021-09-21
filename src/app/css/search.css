@@ -249,6 +249,19 @@ a {
   border-radius: 100%;
 }
 
+.button--green {
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+  background-color: #02be6e;
+  padding: 12px 60px;
+  border-radius: 50px;
+}
+
+.button--green:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
 body {
   width: 100%;
   padding-bottom: 50px;
@@ -266,7 +279,7 @@ body {
   background-color: #f6f5fa;
 }
 
-.main .result {
+.main .photo-container {
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -283,7 +296,7 @@ body {
   margin-left: 4px;
 }
 
-.main .photos-container {
+.main .photo-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -292,9 +305,9 @@ body {
 .main .item {
   position: relative;
   flex: auto;
-  width: 200px;
+  min-width: 200px;
   height: 250px;
-  background-color: bisque;
+  background-color: #f7f7f7;
 }
 
 .main .item__photo-link {

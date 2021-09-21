@@ -81,6 +81,7 @@ photoModel.getPhotoList(query, currentPage).then((res) => {
     li.appendChild(link);
     link.appendChild(img);
 
+    // 부모 노드 연결
     photoListView.appendChild(li);
   });
 
@@ -118,7 +119,8 @@ const queryInput = document.getElementById("queryInput");
 queryInput?.addEventListener("keydown", (event) => {
   const query = queryInput.value;
   if (event.key === "Enter") {
-    location.assign(`${query}`);
+    const path = location.origin + `/search/${query}`;
+    location.assign(path);
   }
 });
 

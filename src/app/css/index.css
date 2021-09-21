@@ -352,6 +352,9 @@ body {
 .introduction__information .user-name {
   position: absolute;
   bottom: 15px;
+}
+
+.introduction__information .user-name > a {
   font-size: 14px;
   color: #fff;
 }

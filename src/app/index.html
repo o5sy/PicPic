@@ -13,7 +13,7 @@
     <!-- 소개 -->
     <main class="introduction">
       <div class="introduction__background">
-        <img src="/res/img/icon/profile-image.svg" alt="" />
+        <img id="mainPhotoView" src="/res/img/icon/profile-image.svg" />
       </div>
       <div class="introduction__information">
         <h1 class="title">놀라운 무료 이미지</h1>
@@ -30,7 +30,11 @@
             placeholder="검색어를 입력하세요."
           />
         </form>
-        <div class="user-name">유저의 무료 이미지</div>
+        <div class="user-name">
+          <a id="mainPhotoDetailLink" href=""
+            ><span id="mainPhotoBy">user</span>의 무료 이미지</a
+          >
+        </div>
       </div>
     </main>
 
@@ -92,5 +96,7 @@
         </h2>
       </div>
     </div>
+
+    <script src="/dist/index_bundle.js"></script>
   </body>
 </html>

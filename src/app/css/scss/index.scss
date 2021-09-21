@@ -82,8 +82,11 @@ body {
     .user-name {
       position: absolute;
       bottom: 15px;
-      font-size: $s-14;
-      color: $white;
+
+      > a {
+        font-size: $s-14;
+        color: $white;
+      }
     }
   }
 }

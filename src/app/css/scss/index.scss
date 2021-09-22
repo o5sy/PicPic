@@ -120,34 +120,56 @@ body {
       }
     }
     .info-container {
-      width: 100%;
-      padding: 0 8px 6px;
-      box-sizing: border-box;
       position: absolute;
-      display: flex;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0, transparent);
-      opacity: 1;
       bottom: 0;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, transparent);
 
-      // // TODO 호버 시 애니메이션 추가
-      // &__tags-container {
-      //   max-height: 50%;
-      //   display: flex;
-      //   flex-wrap: wrap-reverse;
-      //   flex: 1;
+      // transition
+      transition: 0.25s;
+      opacity: 0;
+      &.hover {
+        opacity: 1;
+      }
+      // transition end
 
-      //   .tag {
-      //     > a {
-      //       color: $white;
-      //     }
-      //     &:hover {
-      //       background-color: $gray;
-      //     }
-      //   }
-      // }
-      &__button--add-collection {
-        justify-self: flex-end;
-        align-self: flex-end;
+      .user-info {
+        display: flex;
+        align-items: center;
+        margin-right: 8px;
+
+        > img {
+          width: 32px;
+          height: 32px;
+          margin-right: 8px;
+          border-radius: 100%;
+        }
+        .user-name {
+          font-size: 15px;
+          text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+          color: $white;
+        }
+      }
+      .download-button {
+        @include flexCenter;
+
+        min-width: 30px;
+        border-radius: 4px;
+        background-color: $gray;
+
+        &::after {
+          @include flexCenter;
+          content: url("/res/img/icon/download-icon--gray.png");
+          background-size: 15px;
+        }
+
+        &:hover {
+          background-image: $button-gradient;
+        }
       }
     }
   }

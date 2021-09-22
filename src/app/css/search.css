@@ -323,34 +323,60 @@ body {
 }
 
 .main .item .info-container {
-  width: 100%;
-  padding: 0 8px 6px;
-  box-sizing: border-box;
   position: absolute;
-  display: flex;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0, transparent);
-  opacity: 1;
   bottom: 0;
-}
-
-.main .item .info-container__tags-container {
-  max-height: 50%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap-reverse;
-  flex: 1;
+  justify-content: space-between;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, transparent);
+  transition: 0.25s;
+  opacity: 0;
 }
 
-.main .item .info-container__tags-container .tag > a {
+.main .item .info-container.hover {
+  opacity: 1;
+}
+
+.main .item .info-container .user-info {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.main .item .info-container .user-info > img {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border-radius: 100%;
+}
+
+.main .item .info-container .user-info .user-name {
+  font-size: 15px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   color: #fff;
 }
 
-.main .item .info-container__tags-container .tag:hover {
+.main .item .info-container .download-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  border-radius: 4px;
   background-color: #f7f7f7;
 }
 
-.main .item .info-container__button--add-collection {
-  justify-self: flex-end;
-  align-self: flex-end;
+.main .item .info-container .download-button::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: url("/res/img/icon/download-icon--gray.png");
+  background-size: 15px;
+}
+
+.main .item .info-container .download-button:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
 
 .main .empty-guide {

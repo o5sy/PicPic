@@ -404,21 +404,6 @@ body {
   bottom: 0;
 }
 
-.photo-container .item .info-container__tags-container {
-  max-height: 50%;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  flex: 1;
-}
-
-.photo-container .item .info-container__tags-container .tag > a {
-  color: #fff;
-}
-
-.photo-container .item .info-container__tags-container .tag:hover {
-  background-color: #f7f7f7;
-}
-
 .photo-container .item .info-container__button--add-collection {
   justify-self: flex-end;
   align-self: flex-end;

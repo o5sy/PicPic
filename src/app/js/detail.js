@@ -54,7 +54,7 @@ function setPhotoInfo(res) {
 
     // 다운로드
     var x = new XMLHttpRequest();
-    x.open("GET", res.urls.regular, true);
+    x.open("GET", downloadUrl, true);
     x.responseType = "blob";
     x.onload = function (e) {
       downloadjs(x.response, fileName, `image/${extension}`);

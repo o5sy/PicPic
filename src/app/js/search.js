@@ -13,6 +13,8 @@
 import PhotoModel from "./models/photo.model";
 import { getParam, isEmpty } from "./util/util.page";
 
+const downloadjs = require("./lib/download.js");
+
 // url param 체크
 const urlSplit = location.pathname.split("/");
 let query = urlSplit?.length > 2 ? decodeURI(urlSplit[2]) : "";
@@ -62,7 +64,7 @@ photoModel.getPhotoList(query, currentPage).then((res) => {
 
   // 사진 목록 추가
   res.results.map((info) => {
-    const { id, urls } = info;
+    const { id, urls, user, links } = info;
 
     // 엘리먼트 생성
     const li = document.createElement("li"),
@@ -80,6 +82,61 @@ photoModel.getPhotoList(query, currentPage).then((res) => {
     // 노드 연결
     li.appendChild(link);
     link.appendChild(img);
+
+    // 유저 정보 연결
+    const infoDiv = document.createElement("div"),
+      userInfoDiv = document.createElement("div"),
+      userProfileImg = document.createElement("img"),
+      userNameDiv = document.createElement("div"),
+      downloadButton = document.createElement("button");
+
+    // 클래스 추가
+    infoDiv.classList.add("info-container");
+    userInfoDiv.classList.add("user-info");
+    userNameDiv.classList.add("user-name");
+    downloadButton.classList.add("download-button");
+
+    // 유저 정보 추가
+    userProfileImg.setAttribute("src", user.profile_image.small);
+    userNameDiv.innerHTML = user.name;
+
+    // 다운로드 기능 추가
+    downloadButton.addEventListener("click", () => {
+      // 이미지 url
+      const downloadUrl = urls.regular;
+
+      // 이미지 명
+      let extension = getParam("fm", "jpg", downloadUrl);
+      let fileName = id + "-regular." + extension;
+
+      // 다운로드
+      var x = new XMLHttpRequest();
+      x.open("GET", downloadUrl, true);
+      x.responseType = "blob";
+      x.onload = function (e) {
+        downloadjs(x.response, fileName, `image/${extension}`);
+      };
+      x.send();
+
+      // 다운로드 추적
+      photoModel.trackDownloadPhoto(links.download_location);
+    });
+
+    // 애니메이션 추가
+    li.addEventListener("mouseover", () => {
+      infoDiv.classList.add("hover");
+    });
+    li.addEventListener("mouseleave", () => {
+      if (!infoDiv.classList.contains("hover")) return;
+      infoDiv.classList.remove("hover");
+    });
+
+    // 노드 연결
+    li.appendChild(infoDiv);
+    infoDiv.appendChild(userInfoDiv);
+    userInfoDiv.appendChild(userProfileImg);
+    userInfoDiv.appendChild(userNameDiv);
+    infoDiv.appendChild(downloadButton);
 
     // 부모 노드 연결
     photoListView.appendChild(li);

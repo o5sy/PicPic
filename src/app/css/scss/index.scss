@@ -119,7 +119,6 @@ body {
         object-fit: cover;
       }
     }
-    // TODO 호버 시 애니메이션 추가
     .info-container {
       width: 100%;
       padding: 0 8px 6px;
@@ -130,21 +129,22 @@ body {
       opacity: 1;
       bottom: 0;
 
-      &__tags-container {
-        max-height: 50%;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        flex: 1;
+      // // TODO 호버 시 애니메이션 추가
+      // &__tags-container {
+      //   max-height: 50%;
+      //   display: flex;
+      //   flex-wrap: wrap-reverse;
+      //   flex: 1;
 
-        .tag {
-          > a {
-            color: $white;
-          }
-          &:hover {
-            background-color: $gray;
-          }
-        }
-      }
+      //   .tag {
+      //     > a {
+      //       color: $white;
+      //     }
+      //     &:hover {
+      //       background-color: $gray;
+      //     }
+      //   }
+      // }
       &__button--add-collection {
         justify-self: flex-end;
         align-self: flex-end;

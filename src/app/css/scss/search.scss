@@ -88,6 +88,7 @@ body {
         display: flex;
         align-items: center;
         margin-right: 8px;
+        overflow: hidden;
 
         > img {
           width: 32px;
@@ -99,6 +100,8 @@ body {
           font-size: 15px;
           text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
           color: $white;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
       .download-button {

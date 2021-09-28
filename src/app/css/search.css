@@ -177,10 +177,12 @@ a {
   align-items: center;
   width: 1830px;
   padding: 0 20px;
+  height: 100%;
 }
 
 .header__logo {
   cursor: pointer;
+  margin-right: 30px;
 }
 
 .header__logo > a {
@@ -188,16 +190,21 @@ a {
   font-weight: bold;
 }
 
+.header__logo > a > img {
+  width: 100px;
+}
+
 .header__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
   width: 405px;
   height: 35px;
   background-color: #f7f7f7;
-  display: flex;
-  align-items: center;
   padding: 0 8px;
   border: 1px solid #f6f5fa;
   border-radius: 4px;
-  margin-left: 40px;
 }
 
 .header__search .query-input {
@@ -217,8 +224,24 @@ a {
   height: 100%;
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.header__nav > a {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  color: #191b26;
+  font-size: 14px;
+  padding: 0 15px;
+}
+
+.header__nav > a:hover {
+  color: #515457;
+}
+
+.header__account {
+  justify-content: flex-end;
 }
 
 .header__action-buttons {
@@ -359,6 +382,7 @@ body {
   display: flex;
   align-items: center;
   margin-right: 8px;
+  overflow: hidden;
 }
 
 .main .item .info-container .user-info > img {
@@ -372,6 +396,8 @@ body {
   font-size: 15px;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .main .item .info-container .download-button {

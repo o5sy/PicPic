@@ -31,25 +31,30 @@ a {
     @include flexCenter;
     width: 1830px;
     padding: 0 20px;
+    height: 100%;
   }
   &__logo {
     cursor: pointer;
+    margin-right: 30px;
 
     > a {
       color: $font-color;
       font-weight: bold;
+
+      > img {
+        width: 100px;
+      }
     }
   }
   &__search {
+    @include flexCenter;
+    align-self: center;
     width: 405px;
     height: 35px;
     background-color: $gray;
-    display: flex;
-    align-items: center;
     padding: 0 8px;
     border: 1px solid $gray-border;
     border-radius: 4px;
-    margin-left: 40px;
 
     .query-input {
       width: 100%;
@@ -68,8 +73,22 @@ a {
     height: 100%;
     flex: 1;
     display: flex;
+    align-items: stretch;
+
+    > a {
+      @include flexCenter;
+
+      color: $font-color;
+      font-size: $s-14;
+      padding: 0 15px;
+
+      &:hover {
+        color: $font-color-main;
+      }
+    }
+  }
+  &__account {
     justify-content: flex-end;
-    align-items: center;
   }
   &__action-buttons {
     height: 100%;

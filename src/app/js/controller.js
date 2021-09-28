@@ -1,23 +1,37 @@
-export default function Controller(model, view) {
-  this.model = model;
-  this.view = view;
-  const self = this;
+import { getParam } from "./util/util.page.js";
+const downloadjs = require("./lib/download.js");
 
-  // 이벤트 바인드(뷰 - 컨트롤러 동작)
-  this.view.bind("addCount", function () {
-    self.addCount(); // 굳이 프로토타입에 정의하고 이렇게 가져올 필요가 있나
-  });
-  this.view.bind("minusCount", function () {
-    self.minusCount();
-  });
+export default class Controller {
+  constructor(model, view) {
+    this.model = model;
+    this.view = view;
+  }
+
+  // 검색 페이지로 이동
+  search(query) {
+    const path = location.origin + `/search/${query}`;
+    location.assign(path);
+  }
+
+  // 이미지 다운로드
+  photoDownload(photo) {
+    // 이미지 url
+    const downloadUrl = photo.src;
+
+    // 이미지 명
+    let extension = getParam("fm", "jpg", downloadUrl);
+    let fileName = photo.id + "-regular." + extension;
+
+    // 다운로드
+    var x = new XMLHttpRequest();
+    x.open("GET", downloadUrl, true);
+    x.responseType = "blob";
+    x.onload = function (e) {
+      downloadjs(x.response, fileName, `image/${extension}`);
+    };
+    x.send();
+
+    // 다운로드 추적
+    this.model.trackDownloadPhoto(photo.downloadLocation);
+  }
 }
-
-Controller.prototype.addCount = function () {
-  this.model.count += 1;
-  this.view.render(this.model.count);
-};
-
-Controller.prototype.minusCount = function () {
-  this.model.count--;
-  this.view.render(this.model.count);
-};

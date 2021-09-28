@@ -294,6 +294,14 @@ body {
   object-fit: cover;
 }
 
+.introduction__background .dark-effect {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .introduction__information {
   display: flex;
   align-items: center;
@@ -376,9 +384,25 @@ body {
 .photo-container .item {
   position: relative;
   flex: auto;
-  min-width: 200px;
-  height: 250px;
+  min-width: 220px;
+  height: 280px;
   background-color: #f7f7f7;
+}
+
+.photo-container .item:nth-child(4n + 1) {
+  width: 250px;
+}
+
+.photo-container .item:nth-child(4n + 1):nth-child(4n + 2) {
+  width: 325px;
+}
+
+.photo-container .item:nth-child(4n + 1):nth-child(4n + 3) {
+  width: 180px;
+}
+
+.photo-container .item:nth-child(4n + 1):nth-child(4n + 4) {
+  width: 380px;
 }
 
 .photo-container .item__photo-link {

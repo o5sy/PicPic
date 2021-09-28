@@ -8,6 +8,7 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "masonry-layout": "^4.2.2",
     "mysql": "^2.18.1",
     "unsplash-js": "^7.0.15"
   },

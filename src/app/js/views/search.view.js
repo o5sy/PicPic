@@ -52,10 +52,11 @@ const SearchView = class extends PhotoView {
    */
   setTotalCount(totalCount) {
     const totalCountLabels = document.querySelectorAll("#totalCount");
-    [...totalCountLabels].map(
-      // 천 단위 콤마 표시
-      (e) => (e.innerHTML = totalCount.toLocaleString("ko-KR"))
-    );
+    // 천 단위 콤마 표시
+    [...totalCountLabels].map((e) => {
+      e.innerHTML = totalCount.toLocaleString("ko-KR");
+      e.style.width = "unset"; // 기본 너비값 설정 해제
+    });
   }
 
   setPage(currentPage, totalPage, query) {

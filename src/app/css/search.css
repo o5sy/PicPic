@@ -220,6 +220,11 @@ a {
   outline: none;
 }
 
+.header__search .icon {
+  width: 16px;
+  height: 16px;
+}
+
 .header__nav {
   height: 100%;
   flex: 1;
@@ -317,12 +322,14 @@ body {
 
 .main .total-label > span {
   margin-left: 4px;
+  width: 48px;
 }
 
 .main .photo-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  height: 100vh;
 }
 
 .main .item {
@@ -330,7 +337,7 @@ body {
   flex: auto;
   min-width: 220px;
   height: 280px;
-  background-color: #f7f7f7;
+  background-color: #efefef;
 }
 
 .main .item:nth-child(4n + 1) {
@@ -359,6 +366,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+}
+
+.main .item__photo-link > img.fade {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .main .item .info-container {

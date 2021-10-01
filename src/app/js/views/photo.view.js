@@ -16,20 +16,38 @@ const PhotoView = class extends View {
       throw "Not set root element.";
     }
 
+    // 더미 요소 제거
+    rootElement.innerHTML = "";
     rootElement.append(
       ...dataList.map((data) => {
         const li = document.createElement("li");
         li.classList.add("item");
-        li.innerHTML = `<a class="item__photo-link" href="/photo/${data.id}">
-							  <img src="${data.src}" />
-							</a>`;
 
+        // 상세보기 페이지로 이동시키는 앵커
+        const photoLink = document.createElement("a");
+        photoLink.classList.add("item__photo-link");
+        photoLink.setAttribute("href", `/photo/${data.id}`);
+
+        // 실제 이미지
+        const photoImg = document.createElement("img");
+        photoImg.setAttribute("src", data.src);
+        photoLink.appendChild(photoImg);
+
+        li.appendChild(photoLink);
+
+        // 이미지 로드 시 페이드 효과 추가
+        photoImg.addEventListener("load", () => {
+          photoImg.classList.add("fade");
+        });
+
+        // 업로드 사용자 정보
         const infoDiv = document.createElement("div");
         infoDiv.classList.add("info-container");
         infoDiv.innerHTML = `<div class="user-info">
-								  <img src="${data.userProfile}" />
-								  <div class="user-name">${data.userName}</div>
-								</div>`;
+        				  <img src="${data.userProfile}" class="fade" />
+        				  <div class="user-name">${data.userName}</div>
+        				</div>`;
+
         // 다운 버튼 추가
         const downloadButton = document.createElement("button");
         downloadButton.classList.add("download-button");
@@ -53,6 +71,23 @@ const PhotoView = class extends View {
         return li;
       })
     );
+  }
+
+  // 더미 요소 추가
+  // ? 이렇게 추가하고 데이터 받아왔을 때
+  // ? 부모 엘리먼트 비우고 다시 추가하는거 말고
+  // ? 재활용하거나 처리를 좀 더 줄일 수 있는 방법 없을까
+  setPhotoListSkeleton(rootElement) {
+    if (!rootElement) {
+      throw "Not set root element.";
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const li = document.createElement("li");
+      li.classList.add("item");
+      rootElement.appendChild(li);
+    }
+    rootElement.style.height = "unset"; // css에 정의한 초기값 설정 해제
   }
 
   // TODO 검색 뷰 파일 생성해서 분리해야 될 거 같은데 어떻게 구현하지

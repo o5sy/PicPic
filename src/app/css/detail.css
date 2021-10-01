@@ -219,6 +219,11 @@ a {
   outline: none;
 }
 
+.header__search .icon {
+  width: 16px;
+  height: 16px;
+}
+
 .header__nav {
   height: 100%;
   flex: 1;

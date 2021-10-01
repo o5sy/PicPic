@@ -14,6 +14,9 @@ const SearchController = class extends Controller {
     // 검색창 초기화
     this.view.initQueryInput(this.model.query);
 
+    // 더미 요소 추가 (스켈레톤)
+    this.view.setPhotoListSkeleton(document.getElementById("photoList"));
+
     // 데이터 통신 후 렌더
     const data = await this.model.getPhotoList(
       this.model.query,

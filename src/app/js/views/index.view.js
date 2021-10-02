@@ -25,6 +25,11 @@ const IndexView = class extends PhotoView {
     mainPhotoView?.setAttribute("src", data.src);
     mainPhotoDetailLink?.setAttribute("href", `/photo/${data.id}`);
     if (mainPhotoBy) mainPhotoBy.innerHTML = data.userName;
+
+    // 페이드인 효과
+    mainPhotoView?.addEventListener("load", () => {
+      mainPhotoView.classList.add("fade-in");
+    });
   }
 };
 export { IndexView as default };

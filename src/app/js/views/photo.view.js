@@ -37,14 +37,14 @@ const PhotoView = class extends View {
 
         // 이미지 로드 시 페이드 효과 추가
         photoImg.addEventListener("load", () => {
-          photoImg.classList.add("fade");
+          photoImg.classList.add("fade-in");
         });
 
         // 업로드 사용자 정보
         const infoDiv = document.createElement("div");
         infoDiv.classList.add("info-container");
         infoDiv.innerHTML = `<div class="user-info">
-        				  <img src="${data.userProfile}" class="fade" />
+        				  <img src="${data.userProfile}" />
         				  <div class="user-name">${data.userName}</div>
         				</div>`;
 

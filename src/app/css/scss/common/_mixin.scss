@@ -11,3 +11,12 @@
     @content;
   }
 }
+
+@mixin fadeIn {
+  opacity: 0;
+
+  &.fade-in {
+    opacity: 1;
+    transition: 0.5s;
+  }
+}

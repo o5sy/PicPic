@@ -317,9 +317,15 @@ body {
 }
 
 .introduction__background > img {
+  opacity: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.introduction__background > img.fade-in {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .introduction__background .dark-effect {
@@ -440,9 +446,15 @@ body {
 }
 
 .photo-container .item__photo-link > img {
+  opacity: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.photo-container .item__photo-link > img.fade-in {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .photo-container .item .info-container {

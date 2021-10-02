@@ -439,33 +439,30 @@ body {
   width: 380px;
 }
 
-.photo-container .item__photo-link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.photo-container .item__photo-link > img {
+.photo-container .item__photo {
   opacity: 0;
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.photo-container .item__photo-link > img.fade-in {
+.photo-container .item__photo.fade-in {
   opacity: 1;
   transition: 0.5s;
 }
 
 .photo-container .item .info-container {
   position: absolute;
-  bottom: 0;
   width: 100%;
+  height: 100%;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, transparent);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent, rgba(0, 0, 0, 0.6));
+  cursor: pointer;
   transition: 0.25s;
   opacity: 0;
 }
@@ -474,21 +471,45 @@ body {
   opacity: 1;
 }
 
-.photo-container .item .info-container .user-info {
+.photo-container .item .info-container .top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.photo-container .item .info-container .top .bookmark-button {
+  width: 20px;
+  height: 20px;
+}
+
+.photo-container .item .info-container .top .bookmark-button > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.photo-container .item .info-container .top .bookmark-button.check > svg {
+  fill: #fff;
+}
+
+.photo-container .item .info-container .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo-container .item .info-container .bottom .user-info {
   display: flex;
   align-items: center;
   margin-right: 8px;
   overflow: hidden;
 }
 
-.photo-container .item .info-container .user-info > img {
+.photo-container .item .info-container .bottom .user-info > img {
   width: 32px;
   height: 32px;
   margin-right: 8px;
   border-radius: 100%;
 }
 
-.photo-container .item .info-container .user-info .user-name {
+.photo-container .item .info-container .bottom .user-info .user-name {
   font-size: 15px;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   color: #fff;
@@ -496,7 +517,7 @@ body {
   text-overflow: ellipsis;
 }
 
-.photo-container .item .info-container .download-button {
+.photo-container .item .info-container .bottom .download-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -505,7 +526,7 @@ body {
   background-color: #f7f7f7;
 }
 
-.photo-container .item .info-container .download-button::after {
+.photo-container .item .info-container .bottom .download-button::after {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -513,7 +534,7 @@ body {
   background-size: 15px;
 }
 
-.photo-container .item .info-container .download-button:hover {
+.photo-container .item .info-container .bottom .download-button:hover {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
 

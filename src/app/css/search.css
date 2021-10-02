@@ -356,33 +356,30 @@ body {
   width: 380px;
 }
 
-.main .item__photo-link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.main .item__photo-link > img {
+.main .item__photo {
   opacity: 0;
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.main .item__photo-link > img.fade-in {
+.main .item__photo.fade-in {
   opacity: 1;
   transition: 0.5s;
 }
 
 .main .item .info-container {
   position: absolute;
-  bottom: 0;
   width: 100%;
+  height: 100%;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, transparent);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent, rgba(0, 0, 0, 0.6));
+  cursor: pointer;
   transition: 0.25s;
   opacity: 0;
 }
@@ -391,21 +388,45 @@ body {
   opacity: 1;
 }
 
-.main .item .info-container .user-info {
+.main .item .info-container .top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main .item .info-container .top .bookmark-button {
+  width: 20px;
+  height: 20px;
+}
+
+.main .item .info-container .top .bookmark-button > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.main .item .info-container .top .bookmark-button.check > svg {
+  fill: #fff;
+}
+
+.main .item .info-container .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .item .info-container .bottom .user-info {
   display: flex;
   align-items: center;
   margin-right: 8px;
   overflow: hidden;
 }
 
-.main .item .info-container .user-info > img {
+.main .item .info-container .bottom .user-info > img {
   width: 32px;
   height: 32px;
   margin-right: 8px;
   border-radius: 100%;
 }
 
-.main .item .info-container .user-info .user-name {
+.main .item .info-container .bottom .user-info .user-name {
   font-size: 15px;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   color: #fff;
@@ -413,7 +434,7 @@ body {
   text-overflow: ellipsis;
 }
 
-.main .item .info-container .download-button {
+.main .item .info-container .bottom .download-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -422,7 +443,7 @@ body {
   background-color: #f7f7f7;
 }
 
-.main .item .info-container .download-button::after {
+.main .item .info-container .bottom .download-button::after {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -430,7 +451,7 @@ body {
   background-size: 15px;
 }
 
-.main .item .info-container .download-button:hover {
+.main .item .info-container .bottom .download-button:hover {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
 

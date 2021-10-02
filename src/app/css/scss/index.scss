@@ -130,28 +130,43 @@ body {
       width: 380px;
     }
 
-    &__photo-link {
+    // &__photo-link {
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 100%;
+
+    //   > img {
+    //     @include fadeIn;
+
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: cover;
+    //   }
+    // }
+    &__photo {
+      @include fadeIn;
+
       position: absolute;
       width: 100%;
       height: 100%;
-
-      > img {
-        @include fadeIn;
-
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      object-fit: cover;
     }
     .info-container {
       position: absolute;
-      bottom: 0;
       width: 100%;
+      height: 100%;
       padding: 20px;
       box-sizing: border-box;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, transparent);
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        transparent,
+        rgba(0, 0, 0, 0.6)
+      );
+      cursor: pointer;
 
       // transition
       transition: 0.25s;
@@ -161,41 +176,65 @@ body {
       }
       // transition end
 
-      .user-info {
+      .top {
         display: flex;
-        align-items: center;
-        margin-right: 8px;
-        overflow: hidden;
+        justify-content: flex-end;
 
-        > img {
-          width: 32px;
-          height: 32px;
-          margin-right: 8px;
-          border-radius: 100%;
-        }
-        .user-name {
-          font-size: 15px;
-          text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-          color: $white;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        .bookmark-button {
+          width: 20px;
+          height: 20px;
+
+          > svg {
+            width: 100%;
+            height: 100%;
+          }
+          &.check {
+            > svg {
+              fill: $white;
+            }
+          }
         }
       }
-      .download-button {
-        @include flexCenter;
+      .bottom {
+        display: flex;
+        justify-content: space-between;
 
-        min-width: 30px;
-        border-radius: 4px;
-        background-color: $gray;
+        .user-info {
+          display: flex;
+          align-items: center;
+          margin-right: 8px;
+          overflow: hidden;
 
-        &::after {
-          @include flexCenter;
-          content: url("/res/img/icon/download-icon--gray.png");
-          background-size: 15px;
+          > img {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            border-radius: 100%;
+          }
+          .user-name {
+            font-size: 15px;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+            color: $white;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
+        .download-button {
+          @include flexCenter;
 
-        &:hover {
-          background-image: $button-gradient;
+          min-width: 30px;
+          border-radius: 4px;
+          background-color: $gray;
+
+          &::after {
+            @include flexCenter;
+            content: url("/res/img/icon/download-icon--gray.png");
+            background-size: 15px;
+          }
+
+          &:hover {
+            background-image: $button-gradient;
+          }
         }
       }
     }

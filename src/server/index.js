@@ -50,6 +50,12 @@ app.get("/photo", (req, res) => {
   res.send(result);
 });
 
+// 내 북마크 목록 페이지
+app.get("/bookmark", (req, res) => {
+  const result = getImportHeader("bookmark.html");
+  res.send(result);
+});
+
 app.listen(PORT, () => {
   console.log(`${PORT}번 port에 http server를 띄웠습니다.`);
 });

@@ -8,6 +8,7 @@ module.exports = {
     index: "./src/app/js/index.js",
     search: "./src/app/js/search.js",
     detail: "./src/app/js/detail.js",
+    bookmark: "./src/app/js/bookmark.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

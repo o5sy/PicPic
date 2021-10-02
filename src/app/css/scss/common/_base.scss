@@ -46,6 +46,30 @@ a {
       }
     }
   }
+  &__nav {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    .left,
+    .right {
+      @include flexCenter;
+    }
+    a {
+      @include flexCenter;
+
+      height: 100%;
+      color: $font-color;
+      font-size: $s-14;
+      padding: 0 15px;
+
+      &:hover {
+        color: $font-color-main;
+      }
+    }
+  }
   &__search {
     @include flexCenter;
     align-self: center;
@@ -71,24 +95,6 @@ a {
     .icon {
       width: 16px;
       height: 16px;
-    }
-  }
-  &__nav {
-    height: 100%;
-    flex: 1;
-    display: flex;
-    align-items: stretch;
-
-    > a {
-      @include flexCenter;
-
-      color: $font-color;
-      font-size: $s-14;
-      padding: 0 15px;
-
-      &:hover {
-        color: $font-color-main;
-      }
     }
   }
   &__account {

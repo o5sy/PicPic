@@ -194,6 +194,35 @@ a {
   width: 100px;
 }
 
+.header__nav {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.header__nav .left,
+.header__nav .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #191b26;
+  font-size: 14px;
+  padding: 0 15px;
+}
+
+.header__nav a:hover {
+  color: #515457;
+}
+
 .header__search {
   display: flex;
   justify-content: center;
@@ -223,26 +252,6 @@ a {
 .header__search .icon {
   width: 16px;
   height: 16px;
-}
-
-.header__nav {
-  height: 100%;
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-}
-
-.header__nav > a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #191b26;
-  font-size: 14px;
-  padding: 0 15px;
-}
-
-.header__nav > a:hover {
-  color: #515457;
 }
 
 .header__account {

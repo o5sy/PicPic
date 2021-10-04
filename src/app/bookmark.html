@@ -27,6 +27,43 @@
   </head>
   <body>
     __HEADER__
+
+    <!-- 이미지 목록 -->
+    <main class="main">
+      <div class="photo-container wrap" id="resultView">
+        <div class="total-label">총 <span id="totalCount"></span>개</div>
+        <ul class="photo-list" id="photoList"></ul>
+      </div>
+      <!-- 추가한 북마크 이미지 없을 경우 가이드 ui -->
+      <div class="empty-guide wrap" id="emptyGuide">
+        <div class="empty-guide__title">북마크를 추가해 보세요.</div>
+      </div>
+    </main>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination" id="paginationContainer">
+      <div class="wrap">
+        <a class="pagination__button--next-page" id="nextPageButton">
+          다음 페이지 ＞
+        </a>
+        <div class="pagination__separator"></div>
+        <div class="pagination__bottom">
+          <div class="total-label">총 <span id="totalCount"></span>개</div>
+          <div class="pagination__navigator">
+            <input
+              class="pagination__input-page"
+              id="currentPageLabel"
+              type="number"
+              value="1"
+            />
+            <span class="pagination__last-page" id="lastPageLabel">1</span>
+            <a class="pagination__button--prev" id="prevArrowButton">＜</a>
+            <a class="pagination__button--next" id="nextArrowButton">＞</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="/dist/bookmark_bundle.js"></script>
   </body>
 </html>

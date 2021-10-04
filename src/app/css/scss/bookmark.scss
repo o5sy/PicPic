@@ -1,1 +1,12 @@
 @import "./common/base";
+@import "./photoList";
+
+body {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.wrap {
+  width: 1830px;
+  padding: 0 20px;
+}

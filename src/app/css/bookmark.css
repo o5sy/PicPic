@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -296,4 +297,322 @@ a {
 
 .button--green:hover {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f5fa;
+}
+
+.main .photo-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.main .total-label {
+  display: flex;
+  align-items: center;
+  color: #bbb;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.main .total-label > span {
+  margin-left: 4px;
+  width: 48px;
+}
+
+.main .photo-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 100vh;
+}
+
+.main .item {
+  position: relative;
+  flex: auto;
+  min-width: 220px;
+  height: 280px;
+  background-color: #efefef;
+}
+
+.main .item:nth-child(4n + 1) {
+  width: 250px;
+}
+
+.main .item:nth-child(4n + 1):nth-child(4n + 2) {
+  width: 325px;
+}
+
+.main .item:nth-child(4n + 1):nth-child(4n + 3) {
+  width: 180px;
+}
+
+.main .item:nth-child(4n + 1):nth-child(4n + 4) {
+  width: 380px;
+}
+
+.main .item__photo {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main .item__photo.fade-in {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.main .item .info-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent, rgba(0, 0, 0, 0.6));
+  cursor: pointer;
+  transition: 0.25s;
+  opacity: 0;
+}
+
+.main .item .info-container.hover {
+  opacity: 1;
+}
+
+.main .item .info-container .top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main .item .info-container .top .bookmark-button {
+  width: 20px;
+  height: 20px;
+}
+
+.main .item .info-container .top .bookmark-button > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.main .item .info-container .top .bookmark-button.check > svg {
+  fill: #fff;
+}
+
+.main .item .info-container .top .bookmark-button:hover {
+  opacity: 0.7;
+}
+
+.main .item .info-container .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .item .info-container .bottom .user-info {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  overflow: hidden;
+}
+
+.main .item .info-container .bottom .user-info > img {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border-radius: 100%;
+}
+
+.main .item .info-container .bottom .user-info .user-name {
+  font-size: 15px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main .item .info-container .bottom .download-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+}
+
+.main .item .info-container .bottom .download-button::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: url("/res/img/icon/download-icon--gray.png");
+  background-size: 15px;
+}
+
+.main .item .info-container .bottom .download-button:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+.main .empty-guide {
+  display: none;
+  margin: 240px 0 240px 20px;
+}
+
+.main .empty-guide__title {
+  font-weight: bold;
+  font-size: 15px;
+  color: #191b26;
+  margin-bottom: 30px;
+}
+
+.main .empty-guide__check-list {
+  font-size: 15px;
+  color: #191b26;
+}
+
+.main .empty-guide__check-list > li {
+  list-style: inside;
+  line-height: 28px;
+}
+
+.main .empty-guide__check-list .space {
+  margin-bottom: 15px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pagination__button--next-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 39px;
+  padding: 0 22px;
+  box-sizing: border-box;
+  background-color: #e6e6e6;
+  font-size: 16px;
+  border-radius: 50px;
+  margin: 50px 0;
+  color: #191b26;
+}
+
+.pagination__button--next-page:hover {
+  color: #008251;
+  text-decoration: underline;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+.pagination__button--prev, .pagination__button--next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  border-radius: 50px;
+  color: #777;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0 0 2px #cecece inset;
+  border: 1px solid #cecece;
+}
+
+.pagination__button--prev:hover, .pagination__button--next:hover {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.2));
+}
+
+.pagination__button--next {
+  margin-left: 10px;
+}
+
+.pagination__separator {
+  width: 100%;
+  border-bottom: 1px solid #f0f1f4;
+}
+
+.pagination__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 11px;
+  width: 100%;
+}
+
+.pagination__bottom .total-label {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.pagination__bottom .total-label > span {
+  margin-left: 4px;
+}
+
+.pagination__navigator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23px;
+  align-items: stretch;
+}
+
+.pagination__input-page {
+  width: 28px;
+  font-size: 13px;
+  box-shadow: inset 0 1px 3px #ddd;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 2px;
+  /* 화살표 제거 */
+  /* Firefox */
+  -moz-appearance: textfield;
+  /* Chrome, Safari, Edge, Opera */
+}
+
+.pagination__input-page::-webkit-inner-spin-button, .pagination__input-page::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pagination__input-page:focus {
+  outline: #129fea solid 1px;
+}
+
+.pagination__last-page {
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px 0 4px;
+}
+
+.pagination__last-page::before {
+  content: "/";
+  padding-right: 2px;
+  font-size: 13px;
+}
+
+body {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.wrap {
+  width: 1830px;
+  padding: 0 20px;
 }

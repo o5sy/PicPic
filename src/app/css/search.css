@@ -299,16 +299,6 @@ a {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
 
-body {
-  width: 100%;
-  padding-bottom: 50px;
-}
-
-.wrap {
-  width: 1830px;
-  padding: 0 20px;
-}
-
 .main {
   display: flex;
   justify-content: center;
@@ -414,6 +404,10 @@ body {
 
 .main .item .info-container .top .bookmark-button.check > svg {
   fill: #fff;
+}
+
+.main .item .info-container .top .bookmark-button:hover {
+  opacity: 0.7;
 }
 
 .main .item .info-container .bottom {
@@ -611,4 +605,14 @@ body {
   content: "/";
   padding-right: 2px;
   font-size: 13px;
+}
+
+body {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.wrap {
+  width: 1830px;
+  padding: 0 20px;
 }

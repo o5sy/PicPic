@@ -2,8 +2,8 @@ import View from "./view.js";
 import { isEmpty } from "../util/util.page.js";
 
 const PhotoView = class extends View {
-  constructor() {
-    super();
+  constructor(controller) {
+    super(controller);
   }
 
   photoListRender(dataList, rootElement) {
@@ -18,8 +18,11 @@ const PhotoView = class extends View {
 
     // 더미 요소 제거
     rootElement.innerHTML = "";
-    // ! 요소가 많아질수록 수정하기 어려움
-    // ! 어떻게하면 쉽게 짤 수 있을까
+    // TODO 개선하고 싶음
+    // 요소가 많아질수록 수정하기 어려움
+    // 어떻게하면 쉽게 짤 수 있을까
+    // TODO 1. 함수로 나누기(한 함수에 한 동작만)
+    // 2. 웹 컴포넌트? 템플릿?
     rootElement.append(
       ...dataList.map((data) => {
         const li = document.createElement("li");
@@ -64,7 +67,7 @@ const PhotoView = class extends View {
 
         // 북마크 클릭 이벤트 추가
         bookmarkBtn.addEventListener("click", (event) => {
-          this.controller.toggleBookmark(data.id, (isOn) => {
+          this.controller.toggleBookmark(data, (isOn) => {
             if (isOn) bookmarkBtn.classList.add("check");
             else bookmarkBtn.classList.remove("check");
           });
@@ -112,6 +115,7 @@ const PhotoView = class extends View {
         return li;
       })
     );
+    rootElement.style.height = "unset"; // css에 정의한 초기값 설정 해제
   }
 
   // 더미 요소 추가
@@ -142,6 +146,69 @@ const PhotoView = class extends View {
 
       if (event.key === "Enter") {
         this.controller.search(query);
+      }
+    });
+  }
+
+  /**
+   * 사진 조회 결과 갯수 렌더
+   * @param {number} totalCount
+   */
+  setTotalCount(totalCount, rootElementList) {
+    // 천 단위 콤마 표시
+    [...rootElementList].map((e) => {
+      e.innerHTML = totalCount.toLocaleString("ko-KR");
+      e.style.width = "unset"; // 기본 너비값 설정 해제
+    });
+  }
+
+  // TODO 하드 코딩으로 노드 탐색하지 않도록 개선
+  setPage(currentPage, totalPage, query = "") {
+    // 현재 페이지 설정
+    const currentPageLabel = document.getElementById("currentPageLabel");
+    currentPageLabel.value = currentPage;
+
+    // 총 페이지 수 설정
+    const lastPageLabel = document.getElementById("lastPageLabel");
+    lastPageLabel.innerHTML = totalPage;
+
+    // 페이지 이동 버튼 href 설정 (화살표 버튼)
+    const prevArrowButton = document.getElementById("prevArrowButton");
+    const nextArrowButton = document.getElementById("nextArrowButton");
+    const nextPageButton = document.getElementById("nextPageButton");
+    const prevPage = Math.max(currentPage - 1, 1);
+    const nextPage = Math.min(currentPage + 1, totalPage);
+    const path = !isEmpty(query)
+      ? `${location.pathname}/${query}`
+      : location.pathname;
+    prevArrowButton.setAttribute("href", `${path}?page=${prevPage}`);
+    nextArrowButton.setAttribute("href", `${path}?page=${nextPage}`);
+    nextPageButton.href = `${path}?page=${nextPage}`;
+
+    // 페이지 이동 버튼 제한
+    if (currentPage === 1) {
+      // 첫 페이지일 경우 이전 페이지 이동 버튼 비활성화
+      prevArrowButton.removeAttribute("href");
+    } else if (currentPage == totalPage) {
+      // 마지막 페이지일 경우 다음 페이지 이동 버튼 비활성화, 숨김
+      nextPageButton.style.display = "none";
+      nextArrowButton.removeAttribute("href");
+    }
+
+    // 페이지 수 입력 이벤트
+    currentPageLabel?.addEventListener("keydown", (event) => {
+      // 엔터 시 page 파라미터에 input 값 넣어서 요청
+      if (event.key === "Enter") {
+        const pageValue = currentPageLabel.value;
+        if (
+          typeof pageValue !== "number" &&
+          pageValue > 0 &&
+          pageValue <= totalPage
+        ) {
+          location.assign(`?page=${currentPageLabel.value}`);
+        } else {
+          alert(`1에서 ${totalPage}까지의 페이지를 입력해 주세요.`);
+        }
       }
     });
   }

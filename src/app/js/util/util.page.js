@@ -10,6 +10,6 @@ export const getParam = (param, initValue, url = null) => {
 };
 
 export function isEmpty(str) {
-  if (typeof str == "undefined" || str == null || str == "") return true;
+  if (str === undefined || str == null || str == "") return true;
   else return false;
 }

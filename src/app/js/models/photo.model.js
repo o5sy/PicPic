@@ -26,7 +26,7 @@ class Photo {
     this.userName = userName;
     this.userProfile = userProfile;
     this.downloadLocation = downloadLocation;
-    this.tags = tags;
+    this.tags = tags; // 상세 페이지에서만 필수
   }
 }
 

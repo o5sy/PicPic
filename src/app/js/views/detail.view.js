@@ -2,8 +2,7 @@ import PhotoView from "./photo.view.js";
 
 const DetailView = class extends PhotoView {
   constructor(controller) {
-    super();
-    this.controller = controller;
+    super(controller);
 
     // 검색
     this.bindQueryInput(document.getElementById("queryInput"));

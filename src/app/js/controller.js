@@ -44,8 +44,8 @@ export default class Controller {
   }
 
   // 북마크 추가 / 삭제
-  toggleBookmark(id, renderCallback) {
-    const isOn = this.bookmarkModel.toggle(id);
+  toggleBookmark(data, renderCallback) {
+    const isOn = this.bookmarkModel.toggle(data);
 
     // 해당 아이템 렌더
     renderCallback(isOn);

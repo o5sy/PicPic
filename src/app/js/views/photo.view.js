@@ -16,6 +16,18 @@ const PhotoView = class extends View {
       throw "Not set root element.";
     }
 
+    // 옵저버 생성
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        // 옵저버의 루트(뷰포트가 기본값)와 대상 요소가 교차했는지 여부
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          observer.unobserve(img);
+        }
+      });
+    });
+
     // 더미 요소 제거
     rootElement.innerHTML = "";
     // TODO 개선하고 싶음
@@ -28,23 +40,14 @@ const PhotoView = class extends View {
         const li = document.createElement("li");
         li.classList.add("item");
 
-        // 상세보기 페이지로 이동시키는 앵커
-        // const photoLink = document.createElement("a");
-        // photoLink.classList.add("item__photo-link");
-        // photoLink.setAttribute("href", `/photo/${data.id}`);
-
-        // // 실제 이미지
-        // const photoImg = document.createElement("img");
-        // photoImg.setAttribute("src", data.src);
-        // photoLink.appendChild(photoImg);
-
-        // li.appendChild(photoLink);
-
         // 이미지
         const photoImg = document.createElement("img");
         photoImg.classList.add("item__photo");
-        photoImg.setAttribute("src", data.src);
+        photoImg.dataset.src = data.src; // 수정함!!
         li.appendChild(photoImg);
+
+        // 옵저버 부착(lazy loading)
+        observer.observe(photoImg);
 
         // 이미지 로드 시 페이드 효과 추가
         photoImg.addEventListener("load", () => {
@@ -80,10 +83,19 @@ const PhotoView = class extends View {
         // 사진 정보 - 하위 레이아웃
         const bottomDiv = document.createElement("div");
         bottomDiv.classList.add("bottom");
-        bottomDiv.innerHTML = `<div class="user-info">
-        				  <img src="${data.userProfile}" />
-        				  <div class="user-name">${data.userName}</div>
-        				</div>`;
+        const userInfoDiv = document.createElement("div");
+        userInfoDiv.classList.add("user-info");
+        const profileImg = document.createElement("img");
+        profileImg.dataset.src = data.userProfile;
+        const userNameDiv = document.createElement("div");
+        userNameDiv.classList.add("user-name");
+        userNameDiv.innerHTML = data.userName;
+        userInfoDiv.appendChild(profileImg);
+        userInfoDiv.appendChild(userNameDiv);
+        bottomDiv.appendChild(userInfoDiv);
+
+        // 옵저버 부착(lazy loading)
+        observer.observe(profileImg);
 
         // 다운 버튼 추가
         const downloadButton = document.createElement("button");

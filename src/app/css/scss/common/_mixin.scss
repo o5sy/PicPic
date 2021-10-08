@@ -20,3 +20,15 @@
     transition: 0.5s;
   }
 }
+
+@mixin transparentContent {
+  content: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
+}
+
+@mixin buttonStyle {
+  height: 42px;
+  font-size: 15px;
+  padding: 9px 24px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+}

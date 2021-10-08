@@ -160,6 +160,12 @@ button {
 
 a {
   cursor: pointer;
+  color: #6c5ccc;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .header {
@@ -297,6 +303,60 @@ a {
 
 .button--green:hover {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+button.default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  font-size: 15px;
+  padding: 9px 24px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  background-color: #000;
+  color: #fff;
+}
+
+button.default:hover {
+  background-color: #525252;
+}
+
+button.primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  font-size: 15px;
+  padding: 9px 24px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  background-color: #6c5ccc;
+  color: #fff;
+}
+
+button.primary:hover {
+  background-color: rgba(108, 92, 204, 0.6);
+}
+
+button.secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  font-size: 15px;
+  padding: 9px 24px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #7a7a7a;
+}
+
+button.secondary:hover {
+  background-color: #54595f;
+  color: #fff;
+  border: none;
 }
 
 .main {

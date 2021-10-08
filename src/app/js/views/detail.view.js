@@ -15,7 +15,7 @@ const DetailView = class extends PhotoView {
     }
 
     // 사진
-    this.setPhoto(model.src);
+    // this.setPhoto(model.src);
 
     // 유저 정보
     this.setUserInfo(model.userName, model.userProfile);
@@ -35,7 +35,7 @@ const DetailView = class extends PhotoView {
     photoView?.setAttribute("src", src);
     photoView.addEventListener("load", () => {
       // 기본값 설정 해제
-      photoView.style.height = "unset";
+      // photoView.style.height = "unset";
 
       // 페이드인 효과
       photoView.classList.add("fade-in");

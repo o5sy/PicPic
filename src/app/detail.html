@@ -28,17 +28,76 @@
   <body>
     __HEADER__
 
-    <div class="content-container">
-      <div class="content wrap">
-        <div class="photo-container" id="photoContainer">
-          <main class="photo"><img id="photoView" /></main>
-          <ul class="tag-list" id="tagList"></ul>
-        </div>
-        <aside class="info-container">
+    <article class="content">
+      <div class="wrap">
+        <!-- 사진 -->
+        <main class="content__photo"><img id="photoView" /></main>
+        <!-- 정보 -->
+        <div class="content__info">
           <div class="user-info">
-            <img id="userProfileImg" />
-            <h3 class="user-info__name" id="userNameLabel"></h3>
+            <img class="user-info__profile" id="userProfileImg" />
+            <h2 class="user-info__name" id="userNameLabel"></h2>
           </div>
+          <div class="content__info__last-updated">2020.08.14</div>
+          <div class="content__info__download-count">
+            다운로드 <span id="downloadCount">12,456</span>
+          </div>
+          <a
+            class="content__info__license"
+            href="https://unsplash.com/license"
+            target="_blank"
+          >
+            Unsplash License
+          </a>
+        </div>
+        <hr />
+        <!-- 다운로드 해상도 목록 -->
+        <section class="content__download-container">
+          <h3 class="title">Downloads</h3>
+          <ul id="downloadList">
+            <details open>
+              <summary>Desktop</summary>
+              <div class="item-list">
+                <li class="item">
+                  <div class="item__title">FHD</div>
+                  <div class="item__resolution">1920 x 1080</div>
+                  <button class="item__download-button secondary">
+                    다운로드
+                  </button>
+                </li>
+                <li class="item">
+                  <div class="item__title">FHD</div>
+                  <div class="item__resolution">1920 x 1080</div>
+                  <button class="item__download-button secondary">
+                    다운로드
+                  </button>
+                </li>
+                <li class="item">
+                  <div class="item__title">FHD</div>
+                  <div class="item__resolution">1920 x 1080</div>
+                  <button class="item__download-button secondary">
+                    다운로드
+                  </button>
+                </li>
+              </div>
+            </details>
+            <details open>
+              <summary>Tablet</summary>
+            </details>
+            <details open>
+              <summary>Mobile</summary>
+            </details>
+            <details open>
+              <summary>ETC</summary>
+            </details>
+          </ul>
+        </section>
+        <!-- 태그 목록 -->
+        <ul class="tag-list" id="tagList"></ul>
+      </div>
+    </article>
+
+    <!-- <div class="photo-container" id="photoContainer">
           <hr />
           <button class="button--download" id="downloadButton">
             <img src="/res/img/icon/download-icon.png" />무료 다운로드
@@ -53,9 +112,8 @@
               Unsplash 라이선스에 따라 무료로 사용 가능
             </div>
           </div>
-        </aside>
-      </div>
-    </div>
+        </div>
+        <aside class="info-container"></aside> -->
 
     <script type="module" src="/dist/detail_bundle.js"></script>
   </body>

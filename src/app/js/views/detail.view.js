@@ -1,4 +1,5 @@
 import PhotoView from "./photo.view.js";
+import { DownloadCategoryItem, DownloadItem } from "./items/download.item.js";
 
 const DetailView = class extends PhotoView {
   constructor(controller) {
@@ -14,6 +15,7 @@ const DetailView = class extends PhotoView {
       return;
     }
 
+    // TODO 주석 풀어야함(다운로드 개발하고나서)
     // 사진
     // this.setPhoto(model.src);
 
@@ -30,11 +32,69 @@ const DetailView = class extends PhotoView {
     );
   }
 
+  downloadRender(model) {
+    // 루트 엘리먼트
+    const root = document.getElementById("downloadRoot");
+    if (!root) throw "Not exist root element.";
+
+    //! 아이템 추가
+    // 모델 데이터 순회 -> 루트 요소에 추가
+    //  ㄴ 카테고리 생성 (각각 처리 -> ul 리턴 리턴)
+    //      ㄴ 아이템 생성 (각각 처리 -> 문자열 리턴 -> 카테고리에 대입(교체))
+    root.appendChild(
+      model.reduce((ul, cat) => {
+        // 템플릿 생성
+        const template = new DownloadCategoryItem();
+
+        // 카테고리명 대입
+        template.innerHTML = template.innerHTML.replace(
+          "{category-name}",
+          cat.categoryName
+        );
+
+        // 아이템 대입(순회)
+        template.innerHTML = template.innerHTML.replace(
+          "{item-list}",
+          cat.downloadItems.reduce((list, item) => {
+            // 템플릿 생성
+            let itemTemplate = new DownloadItem();
+
+            // 제목 대입
+            itemTemplate.innerHTML = itemTemplate.innerHTML.replace(
+              "{item-name}",
+              item.itemName
+            );
+
+            // 해상도 텍스트 대입
+            itemTemplate.innerHTML = itemTemplate.innerHTML.replace(
+              "{width}",
+              item.resolution.width
+            );
+            itemTemplate.innerHTML = itemTemplate.innerHTML.replace(
+              "{height}",
+              item.resolution.height
+            );
+
+            // TODO 다운로드 버튼 연결
+
+            list += itemTemplate.outerHTML;
+            return list;
+          }, "")
+        );
+
+        // 노드 연결
+        ul.appendChild(template);
+        return ul;
+      }, document.createElement("ul"))
+    );
+  }
+
   setPhoto(src) {
     const photoView = document.getElementById("photoView");
     photoView?.setAttribute("src", src);
     photoView.addEventListener("load", () => {
       // 기본값 설정 해제
+      // TODO 주석 풀어야함(다운로드 개발하고나서)
       // photoView.style.height = "unset";
 
       // 페이드인 효과

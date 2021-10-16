@@ -29,11 +29,16 @@ const DetailView = class extends PhotoView {
     // 태그 목록
     this.setTagList(model.tags);
 
-    // 다운로드 버튼 이벤트
-    const downloadButton = document.getElementById("downloadButton");
-    downloadButton?.addEventListener("click", () =>
-      this.controller.photoDownload(model)
-    );
+    // 북마크 버튼 이벤트
+    const bookmarkButton = document.getElementById("bookmarkButton");
+    if (model.isBookMark) bookmarkButton?.classList.add("check");
+    bookmarkButton?.addEventListener("click", (event) => {
+      this.controller.toggleBookmark(model, (isOn) => {
+        if (isOn) bookmarkButton.classList.add("check");
+        else bookmarkButton.classList.remove("check");
+      });
+      event.stopPropagation();
+    });
   }
 
   downloadRender(model) {

@@ -1,5 +1,5 @@
 import PhotoModel, { PhotoList } from "./photo.model.js";
-import { getParam } from "../util/util.page.js";
+import { getParam } from "../util/util.js";
 
 const SearchModel = class extends PhotoModel {
   constructor() {

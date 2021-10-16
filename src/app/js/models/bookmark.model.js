@@ -1,5 +1,5 @@
 import { PhotoList } from "./photo.model.js";
-import { getParam } from "../util/util.page.js";
+import { getParam } from "../util/util.js";
 
 export default class BookmarkModel {
   #KEY = "bookmark";

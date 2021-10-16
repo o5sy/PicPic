@@ -1,5 +1,5 @@
 import BookMarkModel from "./models/bookmark.model.js";
-import { getParam } from "./util/util.page.js";
+import { getParam } from "./util/util.js";
 const downloadjs = require("./lib/download.js");
 
 export default class Controller {

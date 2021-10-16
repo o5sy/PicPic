@@ -1,5 +1,5 @@
 import PhotoView from "./photo.view.js";
-import { isEmpty } from "../util/util.page.js";
+import { isEmpty } from "../util/util.js";
 const SearchView = class extends PhotoView {
   constructor(controller) {
     super(controller);

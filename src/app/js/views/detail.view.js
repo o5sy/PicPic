@@ -18,8 +18,13 @@ const DetailView = class extends PhotoView {
     // 사진
     this.setPhoto(model.src);
 
-    // 유저 정보
-    this.setUserInfo(model.userName, model.userProfile);
+    // 사진 정보
+    this.setPhotoInfo(
+      model.userName,
+      model.userProfile,
+      model.createdDate,
+      model.downloadCount
+    );
 
     // 태그 목록
     this.setTagList(model.tags);
@@ -100,11 +105,19 @@ const DetailView = class extends PhotoView {
     });
   }
 
-  setUserInfo(name, profileImg) {
+  setPhotoInfo(name, profileImg, createdDate, downloadCount) {
     const userNameLabel = document.getElementById("userNameLabel");
-    const userProfileImg = document.getElementById("userProfileImg");
     if (userNameLabel) userNameLabel.innerHTML = name;
+
+    const userProfileImg = document.getElementById("userProfileImg");
     userProfileImg?.setAttribute("src", profileImg);
+
+    const dateDiv = document.getElementById("createdDate");
+    if (dateDiv) dateDiv.innerHTML = createdDate;
+
+    // 다운로드 트랙해도 수가 늘지 않아서 숨김
+    // const downloadCountSpan = document.getElementById("downloadCount");
+    // if (downloadCountSpan) downloadCountSpan.innerHTML = downloadCount;
   }
 
   setTagList(tags) {

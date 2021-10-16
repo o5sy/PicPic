@@ -1,5 +1,5 @@
 import View from "./view.js";
-import { isEmpty } from "../util/util.page.js";
+import { isEmpty } from "../util/util.js";
 
 const PhotoView = class extends View {
   constructor(controller) {

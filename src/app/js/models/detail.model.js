@@ -1,8 +1,16 @@
 import PhotoModel from "./photo.model.js";
 const DetailModel = class extends PhotoModel {
+  #photo;
+
   constructor() {
     super();
-    this.photoId = this.getPhotoId();
+  }
+
+  // 가져온 사진 데이터 재사용하기 위한 함수
+  async getPhotoData() {
+    return this.#photo
+      ? this.#photo
+      : (this.#photo = await this.getPhoto(this.getPhotoId()));
   }
 
   // url에서 사진 id 추출 및 반환

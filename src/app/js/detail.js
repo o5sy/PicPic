@@ -13,14 +13,21 @@ const DetailController = class extends Controller {
   }
 
   async render() {
-    const data = await this.model.getPhoto(this.model.photoId).catch(() => {
-      // TODO not found ui 표시
-      console.log("해당 아이템을 가져오는데 실패했습니다.");
-    });
+    const data = await this.model.getPhotoData();
     this.view.render(data);
 
     // 다운로드 영역
     this.view.downloadRender(this.downloadModel.categoryList);
+  }
+
+  async downloadImage(resolution) {
+    // 다운로드 이미지 url 생성
+    const photo = await this.model.getPhotoData();
+    const downloadUrl =
+      photo.rawUrl + `&w=${resolution.width}&h=${resolution.height}`;
+
+    // 다운로드
+    this.photoDownload(photo, downloadUrl);
   }
 };
 new DetailController();

@@ -14,6 +14,7 @@ class Photo {
   constructor(
     id,
     src,
+    rawUrl,
     isBookMark = false,
     userName = "user",
     userProfile = "/res/img/icon/profile-image.svg",
@@ -22,6 +23,7 @@ class Photo {
   ) {
     this.id = id;
     this.src = src;
+    this.rawUrl = rawUrl;
     this.isBookMark = isBookMark;
     this.userName = userName;
     this.userProfile = userProfile;
@@ -82,6 +84,7 @@ export default class PhotoModel {
         return new Photo(
           id,
           src,
+          urls.raw,
           isBookMark,
           userName,
           userProfile,
@@ -111,7 +114,7 @@ export default class PhotoModel {
 
     const { id: resId, tags, user, urls, links } = res.response;
     const src =
-      urls.regular ?? urls.small ?? urls.raw ?? urls.full ?? urls.thumb;
+      urls.regular ?? urls.small ?? urls.thumb ?? urls.full ?? urls.raw;
     const isBookMark = this.BookMarkModel.isExist(id);
     const userName = user.username ?? user.name;
     const userProfile =
@@ -123,6 +126,7 @@ export default class PhotoModel {
     return new Photo(
       resId,
       src,
+      urls.raw,
       isBookMark,
       userName,
       userProfile,

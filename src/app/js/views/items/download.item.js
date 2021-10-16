@@ -8,7 +8,6 @@ export function DownloadCategoryItem() {
 
   // 교체할 문자열 대입
   summary.innerHTML = "{category-name}";
-  itemsDiv.innerHTML = "{item-list}";
 
   // 자식 노드 연결
   wrap.appendChild(summary);

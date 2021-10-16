@@ -11,13 +11,12 @@ const DetailView = class extends PhotoView {
 
   render(model) {
     if (!model) {
-      // TODO not found ui 표시
+      console.log("not found data");
       return;
     }
 
-    // TODO 주석 풀어야함(다운로드 개발하고나서)
     // 사진
-    // this.setPhoto(model.src);
+    this.setPhoto(model.src);
 
     // 유저 정보
     this.setUserInfo(model.userName, model.userProfile);
@@ -44,7 +43,7 @@ const DetailView = class extends PhotoView {
     root.appendChild(
       model.reduce((ul, cat) => {
         // 템플릿 생성
-        const template = new DownloadCategoryItem();
+        const template = DownloadCategoryItem();
 
         // 카테고리명 대입
         template.innerHTML = template.innerHTML.replace(
@@ -52,34 +51,34 @@ const DetailView = class extends PhotoView {
           cat.categoryName
         );
 
-        // 아이템 대입(순회)
-        template.innerHTML = template.innerHTML.replace(
-          "{item-list}",
-          cat.downloadItems.reduce((list, item) => {
+        // 아이템 추가
+        // !!무조건 innerHTML 대입 후에 해야함 (새로 생성된 노드로 교체됨)
+        const itemListWrap = template.querySelector(".item-list");
+        itemListWrap.append(
+          ...cat.downloadItems.map((item) => {
             // 템플릿 생성
-            let itemTemplate = new DownloadItem();
+            let itemTemplate = DownloadItem();
 
-            // 제목 대입
-            itemTemplate.innerHTML = itemTemplate.innerHTML.replace(
-              "{item-name}",
-              item.itemName
+            // 제목, 해상도 대입 (문자열 교체)
+            itemTemplate.innerHTML = itemTemplate.innerHTML
+              .replace("{item-name}", item.itemName)
+              .replace("{width}", item.resolution.width)
+              .replace("{height}", item.resolution.height);
+
+            // 다운로드 버튼 이벤트 추가
+            const downloadBtn = itemTemplate.querySelector(
+              ".item__download-button"
             );
+            downloadBtn.addEventListener("click", () => {
+              // * 해당 해상도로 다운로드
+              // 필요한 데이터: 이미지 id, 해상도
+              // 이미지 id -> 모델에 있음 -> 컨트롤러가 참조함
+              // 해상도를 인자로 담아서 컨트롤러로 넘김
+              this.controller.downloadImage(item.resolution);
+            });
 
-            // 해상도 텍스트 대입
-            itemTemplate.innerHTML = itemTemplate.innerHTML.replace(
-              "{width}",
-              item.resolution.width
-            );
-            itemTemplate.innerHTML = itemTemplate.innerHTML.replace(
-              "{height}",
-              item.resolution.height
-            );
-
-            // TODO 다운로드 버튼 연결
-
-            list += itemTemplate.outerHTML;
-            return list;
-          }, "")
+            return itemTemplate;
+          })
         );
 
         // 노드 연결
@@ -94,8 +93,7 @@ const DetailView = class extends PhotoView {
     photoView?.setAttribute("src", src);
     photoView.addEventListener("load", () => {
       // 기본값 설정 해제
-      // TODO 주석 풀어야함(다운로드 개발하고나서)
-      // photoView.style.height = "unset";
+      photoView.style.height = "unset";
 
       // 페이드인 효과
       photoView.classList.add("fade-in");

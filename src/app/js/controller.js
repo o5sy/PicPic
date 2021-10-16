@@ -22,13 +22,13 @@ export default class Controller {
   }
 
   // 이미지 다운로드
-  photoDownload(photo) {
+  photoDownload(photo, downloadUrl) {
     // 이미지 url
-    const downloadUrl = photo.src;
+    if (!downloadUrl) downloadUrl = photo.src;
 
     // 이미지 명
     let extension = getParam("fm", "jpg", downloadUrl);
-    let fileName = photo.id + "-regular." + extension;
+    let fileName = photo.id + "." + extension;
 
     // 다운로드
     var x = new XMLHttpRequest();

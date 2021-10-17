@@ -51,7 +51,7 @@ const DetailView = class extends PhotoView {
     //  ㄴ 카테고리 생성 (각각 처리 -> ul 리턴 리턴)
     //      ㄴ 아이템 생성 (각각 처리 -> 문자열 리턴 -> 카테고리에 대입(교체))
     root.appendChild(
-      model.reduce((ul, cat) => {
+      model.reduce((ul, cat, i) => {
         // 템플릿 생성
         const template = DownloadCategoryItem();
 
@@ -60,6 +60,9 @@ const DetailView = class extends PhotoView {
           "{category-name}",
           cat.categoryName
         );
+
+        // 첫 카테고리는 오픈 상태로 설정
+        if (i === 0) template.setAttribute("open", "");
 
         // 아이템 추가
         // !!무조건 innerHTML 대입 후에 해야함 (새로 생성된 노드로 교체됨)
@@ -102,9 +105,6 @@ const DetailView = class extends PhotoView {
     const photoView = document.getElementById("photoView");
     photoView?.setAttribute("src", src);
     photoView.addEventListener("load", () => {
-      // 기본값 설정 해제
-      photoView.style.height = "unset";
-
       // 페이드인 효과
       photoView.classList.add("fade-in");
     });

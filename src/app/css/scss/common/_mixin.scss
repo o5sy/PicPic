@@ -26,9 +26,8 @@
 }
 
 @mixin buttonStyle {
-  height: 42px;
-  font-size: 15px;
-  padding: 9px 24px;
+  font-size: $s-h6;
+  padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
 }

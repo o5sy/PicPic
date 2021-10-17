@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 @import "_reset";
-// @import "_font";
 @import "_mixin";
 @import "_size";
 @import "_color";
+// @import "_font";
 
 html {
   font-family: NanumGothic;
@@ -20,10 +20,10 @@ button {
 a {
   cursor: pointer;
   color: $primary-color;
-  text-decoration: underline;
+  text-decoration: none;
 
   &:hover {
-    text-decoration: none;
+    color: $text-color;
   }
 }
 
@@ -156,7 +156,7 @@ button {
     @include flexCenter;
     @include buttonStyle;
 
-    background-color: $black;
+    background-color: $black !important;
     color: $white;
 
     &:hover {
@@ -167,7 +167,7 @@ button {
     @include flexCenter;
     @include buttonStyle;
 
-    background-color: $primary-color;
+    background-color: $primary-color !important;
     color: $white;
 
     &:hover {
@@ -178,12 +178,12 @@ button {
     @include flexCenter;
     @include buttonStyle;
 
-    background-color: $white;
-    color: $black;
-    border: 1px solid #7a7a7a;
+    background-color: $white !important;
+    color: $text-color;
+    border: 1px solid $gray-border;
 
     &:hover {
-      background-color: #54595f;
+      background-color: #54595f !important;
       color: $white;
       border: none;
     }

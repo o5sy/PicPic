@@ -160,11 +160,11 @@ button {
 a {
   cursor: pointer;
   color: #6c5ccc;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  color: #7a7a7a;
 }
 
 .header {
@@ -237,7 +237,7 @@ a:hover {
   height: 35px;
   background-color: #f7f7f7;
   padding: 0 8px;
-  border: 1px solid #f6f5fa;
+  border: 1px solid #dee2e6;
   border-radius: 4px;
 }
 
@@ -308,12 +308,11 @@ button.default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 42px;
-  font-size: 15px;
-  padding: 9px 24px;
+  font-size: 12px;
+  padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
-  background-color: #000;
+  background-color: #000 !important;
   color: #fff;
 }
 
@@ -325,12 +324,11 @@ button.primary {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 42px;
-  font-size: 15px;
-  padding: 9px 24px;
+  font-size: 12px;
+  padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
-  background-color: #6c5ccc;
+  background-color: #6c5ccc !important;
   color: #fff;
 }
 
@@ -342,18 +340,17 @@ button.secondary {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 42px;
-  font-size: 15px;
-  padding: 9px 24px;
+  font-size: 12px;
+  padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #7a7a7a;
+  background-color: #fff !important;
+  color: #7a7a7a;
+  border: 1px solid #dee2e6;
 }
 
 button.secondary:hover {
-  background-color: #54595f;
+  background-color: #54595f !important;
   color: #fff;
   border: none;
 }
@@ -408,7 +405,7 @@ body {
 .content__info {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   height: 22px;
 }
 
@@ -431,7 +428,7 @@ body {
 }
 
 .content__info .user-info__name {
-  font-size: 13px;
+  font-size: 14px;
   color: #7a7a7a;
 }
 
@@ -448,7 +445,7 @@ body {
   border-left: 1px #7a7a7a solid;
   padding-left: 12px;
   color: #7a7a7a;
-  font-size: 13px;
+  font-size: 14px;
   height: 100%;
 }
 
@@ -474,35 +471,67 @@ body {
 }
 
 .content__info__license {
-  font-size: 12px;
+  font-size: 14px;
   margin-left: auto;
 }
 
 .content__download-container {
-  max-width: 600px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
 }
 
 .content__download-container .title {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  padding: 16px 24px;
   color: #7a7a7a;
+  font-weight: bold;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .content__download-container details {
-  margin-bottom: 30px;
-  font-size: 22px;
+  font-size: 14px;
 }
 
 .content__download-container details > summary {
-  margin-bottom: 15px;
   color: #7a7a7a;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #54595f;
   cursor: pointer;
+  padding: 16px 24px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content__download-container details > summary::-webkit-details-marker, .content__download-container details > summary::marker {
+  display: none;
+}
+
+.content__download-container details > summary::after {
+  content: "";
+  background: url(/res/img/icon/fold.svg) no-repeat;
+  background-size: 14px 7px;
+  width: 14px;
+  height: 7px;
+}
+
+.content__download-container details[open] {
+  background-color: #f5f5f5;
+}
+
+.content__download-container details[open] > summary {
+  font-weight: bold;
+}
+
+.content__download-container details[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+.content__download-container details:not(:last-child) {
+  border-bottom: 1px solid #dee2e6;
 }
 
 .content__download-container .item-list {
-  padding: 0 20px;
+  padding: 8px 24px;
 }
 
 .content__download-container .item {
@@ -512,12 +541,13 @@ body {
 }
 
 .content__download-container .item__title {
-  font-size: 22px;
+  font-size: 14px;
   color: #7a7a7a;
+  margin-bottom: 4px;
 }
 
 .content__download-container .item__resolution {
-  font-size: 15px;
+  font-size: 12px;
   grid-column: -3/-2;
   grid-row: 2/3;
   color: #7a7a7a;
@@ -525,6 +555,13 @@ body {
 
 .content__download-container .item__download-button {
   grid-row: -3/-1;
+  content: "";
+  background: url(/res/img/icon/download-icon--gray.png) no-repeat center;
+  width: 50px;
+}
+
+.content__download-container .item__download-button:hover {
+  background-image: url(/res/img/icon/download-icon.png);
 }
 
 .content__download-container .item:nth-of-type(n + 2) {
@@ -536,7 +573,7 @@ body {
 .tag-list {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 25px;
   gap: 12px;
 }
 

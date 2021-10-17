@@ -28,9 +28,6 @@ export function DownloadItem() {
   resolutionDiv.classList.add("item__resolution");
   downloadButton.classList.add("item__download-button", "secondary");
 
-  // 문자열 대입
-  downloadButton.innerHTML = "다운로드";
-
   // 교체할 문자열 대입
   titleDiv.innerHTML = "{item-name}";
   resolutionDiv.innerHTML = "{width} x {height}";

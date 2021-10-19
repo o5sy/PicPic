@@ -31,44 +31,42 @@
     <article class="content">
       <div class="wrap">
         <!-- 사진 -->
-        <main class="content__photo"><img id="photoView" /></main>
+        <main class="photo"><img id="photoView" /></main>
         <!-- 정보 -->
-        <div class="content__info">
-          <div class="user-info">
-            <img class="user-info__profile" id="userProfileImg" />
-            <h2 class="user-info__name" id="userNameLabel"></h2>
+        <div class="content-info">
+          <div class="photo-info">
+            <div class="user-info">
+              <img class="user-info__profile" id="userProfileImg" />
+              <h2 class="user-info__name" id="userNameLabel"></h2>
+            </div>
+            <div class="photo-info__last-updated" id="createdDate"></div>
+            <button class="photo-info__bookmark-button" id="bookmarkButton">
+              <svg
+                width="160"
+                height="186"
+                viewBox="0 0 160 186"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M151.586 20.5651V165.16C151.586 167.703 150.858 170.02 149.4 172.114C147.941 174.21 145.977 175.744 143.511 176.715C142.09 177.313 140.444 177.61 138.574 177.61C134.986 177.61 131.882 176.414 129.264 174.024L79.7935 126.457L30.3229 174.023C27.6299 176.489 24.5279 177.723 21.0118 177.723C19.2921 177.723 17.6462 177.388 16.0769 176.715C13.6095 175.744 11.6458 174.211 10.1877 172.117C8.73002 170.021 8 167.704 8 165.16V20.5635C8 18.0203 8.73003 15.7029 10.1877 13.6087C11.6458 11.5145 13.6095 9.98024 16.0769 9.00898C17.6478 8.33672 19.2921 8 21.0118 8H138.574V8.00157C140.295 8.00157 141.941 8.33829 143.511 9.01055C145.977 9.9826 147.942 11.5149 149.401 13.6103C150.857 15.7045 151.587 18.0218 151.586 20.5651V20.5651Z"
+                  stroke="black"
+                  stroke-width="15"
+                  stroke-miterlimit="10"
+                />
+              </svg>
+            </button>
           </div>
-          <div class="content__info__last-updated" id="createdDate"></div>
-          <button class="content__info__bookmark-button" id="bookmarkButton">
-            <svg
-              width="160"
-              height="186"
-              viewBox="0 0 160 186"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M151.586 20.5651V165.16C151.586 167.703 150.858 170.02 149.4 172.114C147.941 174.21 145.977 175.744 143.511 176.715C142.09 177.313 140.444 177.61 138.574 177.61C134.986 177.61 131.882 176.414 129.264 174.024L79.7935 126.457L30.3229 174.023C27.6299 176.489 24.5279 177.723 21.0118 177.723C19.2921 177.723 17.6462 177.388 16.0769 176.715C13.6095 175.744 11.6458 174.211 10.1877 172.117C8.73002 170.021 8 167.704 8 165.16V20.5635C8 18.0203 8.73003 15.7029 10.1877 13.6087C11.6458 11.5145 13.6095 9.98024 16.0769 9.00898C17.6478 8.33672 19.2921 8 21.0118 8H138.574V8.00157C140.295 8.00157 141.941 8.33829 143.511 9.01055C145.977 9.9826 147.942 11.5149 149.401 13.6103C150.857 15.7045 151.587 18.0218 151.586 20.5651V20.5651Z"
-                stroke="black"
-                stroke-width="15"
-                stroke-miterlimit="10"
-              />
-            </svg>
-          </button>
-          <!-- <div class="content__info__download-count">
-            다운로드 <span id="downloadCount"></span>
-          </div> -->
           <a
-            class="content__info__license"
+            class="license-info"
             href="https://unsplash.com/license"
             target="_blank"
           >
             Unsplash License
           </a>
         </div>
-        <hr />
         <!-- 다운로드 해상도 목록 -->
-        <section class="content__download-container" id="downloadRoot">
+        <section class="download-container" id="downloadRoot">
           <h3 class="title">Downloads</h3>
           <!-- <ul id="downloadList">
             <details open>

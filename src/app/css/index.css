@@ -177,6 +177,11 @@ button {
   font-weight: normal;
 }
 
+html {
+  font-family: NanumGothic;
+  font-size: 10px;
+}
+
 button {
   background: none;
   border: none;
@@ -249,6 +254,8 @@ a:hover {
   color: #191b26;
   font-size: 14px;
   padding: 0 15px;
+  box-sizing: border-box;
+  width: 72px;
 }
 
 .header__nav a:hover {
@@ -335,7 +342,7 @@ button.default {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 1.2rem;
   padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
@@ -351,7 +358,7 @@ button.primary {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 1.2rem;
   padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
@@ -367,7 +374,7 @@ button.secondary {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 1.2rem;
   padding: 6px 12px;
   letter-spacing: 0.04em;
   border-radius: 30px;
@@ -380,6 +387,13 @@ button.secondary:hover {
   background-color: #54595f !important;
   color: #fff;
   border: none;
+}
+
+/* 반응형 */
+@media (max-width: calc(768px + 1px)) {
+  .header__search {
+    width: unset;
+  }
 }
 
 .main {
@@ -757,7 +771,7 @@ body {
 
 .introduction .left .title {
   font-family: CarneysGallery;
-  font-size: 80px;
+  font-size: 8rem;
   color: #fff;
   margin-bottom: 30px;
   position: relative;
@@ -766,8 +780,8 @@ body {
   justify-content: center;
 }
 
-.introduction .left .title .stroke {
-  font-size: 120px;
+.introduction .left .title .text--cursive {
+  font-size: 12rem;
   position: absolute;
   font-family: SabenyBetranss;
   top: 50px;
@@ -1004,4 +1018,47 @@ body {
 
 .additional-description .description > a {
   color: #0a88d3;
+}
+
+/* 반응형 - laptop */
+@media (max-width: calc(1024px + 1px)) {
+  .introduction .right {
+    display: none;
+  }
+}
+
+/* 반응형 - mobile-l */
+@media (max-width: calc(425px + 1px)) {
+  .introduction .left .title {
+    height: 100px;
+    font-size: 6.4rem;
+  }
+  .introduction .left .title .text--cursive {
+    top: 32px;
+    font-size: 9.6rem;
+  }
+  .photo-container .item {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* 반응형 - mobile-m */
+@media (max-width: calc(375px + 1px)) {
+  .introduction .left .title {
+    font-size: 5.6rem;
+  }
+  .introduction .left .title .text--cursive {
+    font-size: 8.4rem;
+  }
+}
+
+/* 반응형 - mobile-s */
+@media (max-width: calc(375px + 1px)) {
+  .introduction .left .title {
+    font-size: 4.8rem;
+  }
+  .introduction .left .title .text--cursive {
+    font-size: 7.2rem;
+  }
 }

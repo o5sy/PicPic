@@ -28,8 +28,6 @@ body {
     height: 100%;
 
     > img {
-      // @include fadeIn;
-
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -63,25 +61,20 @@ body {
 
     .title {
       font-family: CarneysGallery;
-      font-size: 80px;
+      font-size: 8rem;
       color: $white;
       margin-bottom: 30px;
-      // line-height: 88px;
-      // font-weight: bold;
-
       position: relative;
       height: 150px;
       display: flex;
       justify-content: center;
 
-      .stroke {
-        font-size: 120px;
+      .text--cursive {
+        font-size: 12rem;
         position: absolute;
         font-family: SabenyBetranss;
         top: 50px;
         color: #c2c2c2;
-        // -webkit-text-stroke: 1px $white;
-        // color: transparent;
       }
     }
     .description {
@@ -295,6 +288,73 @@ body {
 
     > a {
       color: $link-color;
+    }
+  }
+}
+
+/* 반응형 - laptop */
+@include laptop {
+  .introduction {
+    .right {
+      display: none;
+    }
+  }
+}
+
+/* 반응형 - mobile-l */
+@include mobile-l {
+  .introduction {
+    .left {
+      .title {
+        height: 100px;
+        font-size: 6.4rem;
+
+        .text--cursive {
+          top: 32px;
+          font-size: 9.6rem;
+        }
+      }
+    }
+  }
+
+  .photo-container {
+    .item {
+      min-width: unset;
+      width: 100%;
+    }
+  }
+}
+
+/* 반응형 - mobile-m */
+@include mobile-m {
+  .introduction {
+    .left {
+      .title {
+        // height: 100px;
+        font-size: 5.6rem;
+
+        .text--cursive {
+          // top: 32px;
+          font-size: 8.4rem;
+        }
+      }
+    }
+  }
+}
+
+/* 반응형 - mobile-s */
+@include mobile-m {
+  .introduction {
+    .left {
+      .title {
+        // height: 100px;
+        font-size: 4.8rem;
+
+        .text--cursive {
+          // top: 32px;
+          font-size: 7.2rem;
+        }
+      }
     }
   }
 }

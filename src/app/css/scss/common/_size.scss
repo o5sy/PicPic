@@ -5,9 +5,15 @@ $s-15: 15px;
 $s-14: 14px;
 $s-13: 13px;
 
-$s-h1: 80px;
-$s-h2: 34px;
-$s-h3: 30px;
-$s-h4: 18px;
-$s-h5: 14px;
-$s-h6: 12px;
+$s-h1: 8rem;
+$s-h2: 3.4rem;
+$s-h3: 3rem;
+$s-h4: 1.8rem;
+$s-h5: 1.4rem;
+$s-h6: 1.2rem;
+
+$breakpoint-laptop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile-l: 425px;
+$breakpoint-mobile-m: 375px;
+$breakpoint-mobile-s: 320px;

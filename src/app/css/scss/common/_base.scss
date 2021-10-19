@@ -6,9 +6,10 @@
 @import "_color";
 @import "_font";
 
-// html {
-//   font-family: NanumGothic;
-// }
+html {
+  font-family: NanumGothic;
+  font-size: 10px; // 1rem = 10px
+}
 
 button {
   background: none;
@@ -70,6 +71,8 @@ a {
       color: $font-color;
       font-size: $s-14;
       padding: 0 15px;
+      box-sizing: border-box;
+      width: 72px;
 
       &:hover {
         color: $font-color-main;
@@ -187,5 +190,12 @@ button {
       color: $white;
       border: none;
     }
+  }
+}
+
+/* 반응형 */
+@include tablet {
+  .header__search {
+    width: unset;
   }
 }

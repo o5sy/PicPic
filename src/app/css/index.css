@@ -147,8 +147,34 @@ button {
   cursor: pointer;
 }
 
-html {
+@font-face {
   font-family: NanumGothic;
+  src: url(../res/font/NanumGothic/NanumGothic-Regular.eot);
+  src: url(../res/font/NanumGothic/NanumGothic-Regular.eot?#iefix) format("embedded-opentype"), url(../res/font/NanumGothic/NanumGothic-Regular.woff2) format("woff2"), url(../res/font/NanumGothic/NanumGothic-Regular.woff) format("woff"), url(../res/font/NanumGothic/NanumGothic-Regular.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: NanumGothic;
+  src: url(../res/font/NanumGothic/NanumGothic-Bold.eot);
+  src: url(../res/font/NanumGothic/NanumGothic-Bold.eot?#iefix) format("embedded-opentype"), url(../res/font/NanumGothic/NanumGothic-Bold.woff2) format("woff2"), url(../res/font/NanumGothic/NanumGothic-Bold.woff) format("woff"), url(../res/font/NanumGothic/NanumGothic-Bold.ttf) format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: CarneysGallery;
+  src: url(../res/font/CarneysGallery/CarneysGallery.otf);
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: SabenyBetranss;
+  src: url(../res/font/SabenyBetranss/SabenyBetranss.otf), url(../res/font/SabenyBetranss/SabenyBetranss.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
 }
 
 button {
@@ -726,19 +752,26 @@ body {
   flex-direction: column;
   flex: 1;
   margin: 0 40px;
+  align-items: center;
 }
 
 .introduction .left .title {
+  font-family: CarneysGallery;
   font-size: 80px;
-  line-height: 88px;
-  font-weight: bold;
   color: #fff;
   margin-bottom: 30px;
+  position: relative;
+  height: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .introduction .left .title .stroke {
-  -webkit-text-stroke: 1px #fff;
-  color: transparent;
+  font-size: 120px;
+  position: absolute;
+  font-family: SabenyBetranss;
+  top: 50px;
+  color: #c2c2c2;
 }
 
 .introduction .left .description {

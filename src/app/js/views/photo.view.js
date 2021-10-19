@@ -190,12 +190,12 @@ const PhotoView = class extends View {
     const nextPageButton = document.getElementById("nextPageButton");
     const prevPage = Math.max(currentPage - 1, 1);
     const nextPage = Math.min(currentPage + 1, totalPage);
-    const path = !isEmpty(query)
-      ? `${location.pathname}/${query}`
-      : location.pathname;
-    prevArrowButton.setAttribute("href", `${path}?page=${prevPage}`);
-    nextArrowButton.setAttribute("href", `${path}?page=${nextPage}`);
-    nextPageButton.href = `${path}?page=${nextPage}`;
+    // const path = !isEmpty(query)
+    //   ? `${location.pathname}/${query}`
+    //   : location.pathname;
+    prevArrowButton.setAttribute("href", `?page=${prevPage}`);
+    nextArrowButton.setAttribute("href", `?page=${nextPage}`);
+    nextPageButton.href = `?page=${nextPage}`;
 
     // 페이지 이동 버튼 제한
     if (currentPage === 1) {

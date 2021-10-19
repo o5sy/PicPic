@@ -4,11 +4,11 @@
 @import "_mixin";
 @import "_size";
 @import "_color";
-// @import "_font";
+@import "_font";
 
-html {
-  font-family: NanumGothic;
-}
+// html {
+//   font-family: NanumGothic;
+// }
 
 button {
   background: none;

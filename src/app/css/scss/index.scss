@@ -59,17 +59,29 @@ body {
     flex-direction: column;
     flex: 1;
     margin: 0 40px;
+    align-items: center;
 
     .title {
+      font-family: CarneysGallery;
       font-size: 80px;
-      line-height: 88px;
-      font-weight: bold;
       color: $white;
       margin-bottom: 30px;
+      // line-height: 88px;
+      // font-weight: bold;
+
+      position: relative;
+      height: 150px;
+      display: flex;
+      justify-content: center;
 
       .stroke {
-        -webkit-text-stroke: 1px $white;
-        color: transparent;
+        font-size: 120px;
+        position: absolute;
+        font-family: SabenyBetranss;
+        top: 50px;
+        color: #c2c2c2;
+        // -webkit-text-stroke: 1px $white;
+        // color: transparent;
       }
     }
     .description {

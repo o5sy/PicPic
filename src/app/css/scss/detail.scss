@@ -9,39 +9,197 @@ body {
   padding: 0 20px;
 }
 
-.content-container {
+.content {
   @include flexCenter;
   margin: 32px 0;
 
-  .content {
+  .wrap {
     display: flex;
+    flex-direction: column;
   }
-}
-
-.photo-container {
-  flex: 1;
-  margin-right: 50px;
-
   .photo {
     @include flexCenter;
-    min-width: 330px;
+
+    margin-bottom: 50px;
 
     > img {
       @include fadeIn;
 
       object-fit: contain;
-      box-shadow: rgba(0, 0, 30, 0.3) 0px 1px 3px 0px;
       max-width: 100%;
-      max-height: 500px;
-      height: 480px; // 기본값 이미지 로드 후 unset
+      height: 60vh;
 
       &:not([src]) {
+        @include transparentContent;
         opacity: 1;
-        box-shadow: none;
         width: 100%;
-        height: 500px;
         background-color: $skeleton;
       }
+    }
+  }
+  &-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+
+    .photo-info {
+      display: flex;
+      align-items: center;
+      height: 22px;
+
+      &__last-updated,
+      &__bookmark-button,
+      &__download-count {
+        display: flex;
+        align-items: center;
+        margin-left: 12px;
+        border-left: 1px $text-color solid;
+        padding-left: 12px;
+        color: $text-color;
+        font-size: $s-h5;
+        height: 100%;
+
+        > span {
+          color: $primary-color;
+        }
+      }
+      &__bookmark-button {
+        > svg {
+          width: 13px;
+          height: 100%;
+
+          > path {
+            stroke: $text-color;
+          }
+        }
+        &.check {
+          > svg {
+            fill: $text-color;
+          }
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+    .user-info {
+      @include flexCenter;
+
+      &__profile {
+        width: 22px;
+        height: 22px;
+        border-radius: 100%;
+        margin-right: 8px;
+
+        &:not([src]) {
+          @include transparentContent;
+          background-color: $skeleton;
+        }
+      }
+      &__name {
+        font-size: $s-h5;
+        color: $text-color;
+
+        &:empty {
+          opacity: 1;
+          width: 100px;
+          background-color: $skeleton;
+        }
+      }
+    }
+    .license-info {
+      font-size: $s-h5;
+      margin-left: auto;
+    }
+  }
+}
+
+.download-container {
+  border: 1px solid $gray-border;
+  border-radius: 4px;
+
+  .title {
+    font-size: $s-h4;
+    padding: 16px 24px;
+    color: $text-color;
+    font-weight: bold;
+    border-bottom: 1px solid $gray-border;
+  }
+  details {
+    font-size: $s-h5;
+
+    > summary {
+      color: $text-color;
+      cursor: pointer;
+      padding: 16px 24px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      // 기본 화살표 제거
+      &::-webkit-details-marker,
+      &::marker {
+        display: none;
+      }
+      &::after {
+        content: ""; // 없으면 표시 안됨
+        background: url(/res/img/icon/fold.svg) no-repeat;
+        background-size: 14px 7px;
+        width: 14px;
+        height: 7px;
+      }
+    }
+    &[open] {
+      background-color: $gary-light;
+
+      > summary {
+        font-weight: bold;
+
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid $gray-border;
+    }
+  }
+  .item-list {
+    padding: 8px 24px;
+  }
+  .item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(2, 1fr);
+
+    &__title {
+      font-size: $s-h5;
+      color: $text-color;
+      margin-bottom: 4px;
+    }
+    &__resolution {
+      font-size: $s-h6;
+      grid-column: -3/-2;
+      grid-row: 2/3;
+      color: $text-color;
+    }
+    &__download-button {
+      grid-row: -3/-1;
+      content: "";
+      background: url(/res/img/icon/download-icon--gray.png) no-repeat center;
+      width: 50px;
+
+      &:hover {
+        background-image: url(/res/img/icon/download-icon.png);
+      }
+    }
+    &:nth-of-type(n + 2) {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e0e0e0;
     }
   }
 }
@@ -49,7 +207,7 @@ body {
 .tag-list {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 25px;
   gap: 12px;
 
   &:empty {
@@ -70,77 +228,6 @@ body {
 
     > a {
       color: $gray-button;
-    }
-  }
-}
-
-.info-container {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  > hr {
-    width: 100%;
-    border: unset; // 입체감 없애기
-    border-top: 1px solid #eeeff2;
-  }
-  .user-info {
-    display: flex;
-
-    > img {
-      width: 48px;
-      height: 48px;
-      border-radius: 100%;
-      margin-right: 12px;
-      background-color: $skeleton;
-    }
-    &__name {
-      font-size: 15px;
-      color: #555;
-      height: 20px;
-
-      &:empty {
-        opacity: 1;
-        width: 100px;
-        background-color: $skeleton;
-      }
-    }
-  }
-  .button--download {
-    height: 42px;
-    font-size: 16px;
-    color: $white;
-    background-color: $green-button;
-    border-radius: 50px;
-
-    > img {
-      width: 16px;
-      height: 16px;
-      margin-right: 8px;
-    }
-    &:hover {
-      background-image: $button-gradient;
-    }
-  }
-  .outer {
-    padding: 15px 20px;
-    background-color: $gray-border;
-  }
-  .license-info {
-    > .title {
-      font-size: 16px;
-      margin-bottom: 5px;
-
-      > a {
-        text-decoration: underline;
-        color: #636363;
-      }
-    }
-    > .description {
-      font-size: 14px;
-      line-height: 21px;
-      color: $font-color;
     }
   }
 }

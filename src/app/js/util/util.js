@@ -13,3 +13,15 @@ export function isEmpty(str) {
   if (str === undefined || str == null || str == "") return true;
   else return false;
 }
+
+export function getFormattedDate(userDate) {
+  const date = new Date(userDate);
+
+  const yy = date.getFullYear();
+  let mm = date.getMonth() + 1;
+  mm = mm < 10 ? `0${mm}` : mm;
+  let dd = date.getDate();
+  dd = dd < 10 ? `0${dd}` : dd;
+
+  return [yy, mm, dd].join(".");
+}

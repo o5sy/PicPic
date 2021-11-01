@@ -147,8 +147,39 @@ button {
   cursor: pointer;
 }
 
+@font-face {
+  font-family: NanumGothic;
+  src: url(../res/font/NanumGothic/NanumGothic-Regular.eot);
+  src: url(../res/font/NanumGothic/NanumGothic-Regular.eot?#iefix) format("embedded-opentype"), url(../res/font/NanumGothic/NanumGothic-Regular.woff2) format("woff2"), url(../res/font/NanumGothic/NanumGothic-Regular.woff) format("woff"), url(../res/font/NanumGothic/NanumGothic-Regular.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: NanumGothic;
+  src: url(../res/font/NanumGothic/NanumGothic-Bold.eot);
+  src: url(../res/font/NanumGothic/NanumGothic-Bold.eot?#iefix) format("embedded-opentype"), url(../res/font/NanumGothic/NanumGothic-Bold.woff2) format("woff2"), url(../res/font/NanumGothic/NanumGothic-Bold.woff) format("woff"), url(../res/font/NanumGothic/NanumGothic-Bold.ttf) format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: CarneysGallery;
+  src: url(../res/font/CarneysGallery/CarneysGallery.otf);
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: SabenyBetranss;
+  src: url(../res/font/SabenyBetranss/SabenyBetranss.otf), url(../res/font/SabenyBetranss/SabenyBetranss.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 html {
   font-family: NanumGothic;
+  font-size: 10px;
 }
 
 button {
@@ -160,6 +191,12 @@ button {
 
 a {
   cursor: pointer;
+  color: #6c5ccc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7a7a7a;
 }
 
 .header {
@@ -217,6 +254,8 @@ a {
   color: #191b26;
   font-size: 14px;
   padding: 0 15px;
+  box-sizing: border-box;
+  width: 72px;
 }
 
 .header__nav a:hover {
@@ -232,7 +271,7 @@ a {
   height: 35px;
   background-color: #f7f7f7;
   padding: 0 8px;
-  border: 1px solid #f6f5fa;
+  border: 1px solid #dee2e6;
   border-radius: 4px;
 }
 
@@ -297,6 +336,64 @@ a {
 
 .button--green:hover {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+button.default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  background-color: #000 !important;
+  color: #fff;
+}
+
+button.default:hover {
+  background-color: #525252;
+}
+
+button.primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  background-color: #6c5ccc !important;
+  color: #fff;
+}
+
+button.primary:hover {
+  background-color: rgba(108, 92, 204, 0.6);
+}
+
+button.secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  background-color: #fff !important;
+  color: #7a7a7a;
+  border: 1px solid #dee2e6;
+}
+
+button.secondary:hover {
+  background-color: #54595f !important;
+  color: #fff;
+  border: none;
+}
+
+/* 반응형 */
+@media (max-width: calc(768px + 1px)) {
+  .header__search {
+    width: unset;
+  }
 }
 
 .main {

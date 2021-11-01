@@ -6,12 +6,38 @@
   align-items: center;
 }
 
-@mixin breakpoint {
-  @media (max-width: $breakpoint) {
+// 반응형
+@mixin laptop {
+  @media (max-width: calc(#{$breakpoint-laptop} + 1px)) {
     @content;
   }
 }
 
+@mixin tablet {
+  @media (max-width: calc(#{$breakpoint-tablet} + 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile-l {
+  @media (max-width: calc(#{$breakpoint-mobile-l} + 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile-m {
+  @media (max-width: calc(#{$breakpoint-mobile-m} + 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (max-width: calc(#{$breakpoint-mobile-s} + 1px)) {
+    @content;
+  }
+}
+
+// 페이드 효과
 @mixin fadeIn {
   opacity: 0;
 
@@ -19,4 +45,17 @@
     opacity: 1;
     transition: 0.5s;
   }
+}
+
+// 투명 1px
+@mixin transparentContent {
+  content: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
+}
+
+// 기본 버튼 스타일
+@mixin buttonStyle {
+  font-size: $s-h6;
+  padding: 6px 12px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
 }

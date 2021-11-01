@@ -1,13 +1,14 @@
 @charset "UTF-8";
 
 @import "_reset";
-// @import "_font";
 @import "_mixin";
 @import "_size";
 @import "_color";
+@import "_font";
 
 html {
   font-family: NanumGothic;
+  font-size: 10px; // 1rem = 10px
 }
 
 button {
@@ -19,6 +20,12 @@ button {
 
 a {
   cursor: pointer;
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $text-color;
+  }
 }
 
 .header {
@@ -64,6 +71,8 @@ a {
       color: $font-color;
       font-size: $s-14;
       padding: 0 15px;
+      box-sizing: border-box;
+      width: 72px;
 
       &:hover {
         color: $font-color-main;
@@ -142,5 +151,51 @@ a {
 
   &:hover {
     background-image: $button-gradient;
+  }
+}
+
+button {
+  &.default {
+    @include flexCenter;
+    @include buttonStyle;
+
+    background-color: $black !important;
+    color: $white;
+
+    &:hover {
+      background-color: #525252;
+    }
+  }
+  &.primary {
+    @include flexCenter;
+    @include buttonStyle;
+
+    background-color: $primary-color !important;
+    color: $white;
+
+    &:hover {
+      background-color: rgba(108, 92, 204, 0.6);
+    }
+  }
+  &.secondary {
+    @include flexCenter;
+    @include buttonStyle;
+
+    background-color: $white !important;
+    color: $text-color;
+    border: 1px solid $gray-border;
+
+    &:hover {
+      background-color: #54595f !important;
+      color: $white;
+      border: none;
+    }
+  }
+}
+
+/* 반응형 */
+@include tablet {
+  .header__search {
+    width: unset;
   }
 }

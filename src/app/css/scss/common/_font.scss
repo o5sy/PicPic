@@ -23,3 +23,18 @@
   font-style: normal;
   font-weight: bold;
 }
+
+@font-face {
+  font-family: CarneysGallery;
+  src: url(../res/font/CarneysGallery/CarneysGallery.otf);
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: SabenyBetranss;
+  src: url(../res/font/SabenyBetranss/SabenyBetranss.otf),
+    url(../res/font/SabenyBetranss/SabenyBetranss.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

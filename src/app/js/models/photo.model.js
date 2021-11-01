@@ -1,6 +1,6 @@
 import BookMarkModel from "./bookmark.model.js";
 import { createApi } from "unsplash-js";
-import { isEmpty } from "../util/util.page.js";
+import { isEmpty, getFormattedDate } from "../util/util.js";
 
 export class PhotoList {
   constructor(photo = [], total = 1, totalPage = 1) {
@@ -13,7 +13,10 @@ export class PhotoList {
 class Photo {
   constructor(
     id,
+    createdDate,
     src,
+    rawUrl,
+    downloadCount,
     isBookMark = false,
     userName = "user",
     userProfile = "/res/img/icon/profile-image.svg",
@@ -21,7 +24,10 @@ class Photo {
     tags = []
   ) {
     this.id = id;
+    this.createdDate = getFormattedDate(createdDate);
     this.src = src;
+    this.rawUrl = rawUrl;
+    this.downloadCount = downloadCount;
     this.isBookMark = isBookMark;
     this.userName = userName;
     this.userProfile = userProfile;
@@ -69,7 +75,14 @@ export default class PhotoModel {
 
     return new PhotoList(
       results.map((data) => {
-        const { id, user, urls, links } = data;
+        const {
+          id,
+          user,
+          urls,
+          links,
+          created_at: createdDate,
+          downloads,
+        } = data;
         const isBookMark = this.BookMarkModel.isExist(id);
         const userName = user.username ?? user.name;
         const userProfile =
@@ -81,7 +94,10 @@ export default class PhotoModel {
         const downloadLocation = links?.download_location;
         return new Photo(
           id,
+          createdDate,
           src,
+          urls.raw,
+          downloads,
           isBookMark,
           userName,
           userProfile,
@@ -109,9 +125,17 @@ export default class PhotoModel {
     if (!res) throw "응답 없음";
     if (res.status !== 200) throw res.errors;
 
-    const { id: resId, tags, user, urls, links } = res.response;
+    const {
+      id: resId,
+      tags,
+      user,
+      urls,
+      links,
+      created_at: createdDate,
+      downloads,
+    } = res.response;
     const src =
-      urls.regular ?? urls.small ?? urls.raw ?? urls.full ?? urls.thumb;
+      urls.regular ?? urls.small ?? urls.thumb ?? urls.full ?? urls.raw;
     const isBookMark = this.BookMarkModel.isExist(id);
     const userName = user.username ?? user.name;
     const userProfile =
@@ -122,7 +146,10 @@ export default class PhotoModel {
     const tagList = tags.map((tag) => tag.title);
     return new Photo(
       resId,
+      createdDate,
       src,
+      urls.raw,
+      downloads,
       isBookMark,
       userName,
       userProfile,
